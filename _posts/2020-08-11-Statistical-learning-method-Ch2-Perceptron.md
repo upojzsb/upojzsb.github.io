@@ -74,15 +74,19 @@ $$
 
 $$
 d & = & |\frac{\overrightarrow{PQ}\cdot\vec{\omega}}{||\vec{n}||_{2}}|
-$$
-$$
+
+
  & = & |\frac{\vec{\omega}}{||\vec{\omega}||_{2}}(x_0-x)|
-$$
-$$
+
+
  & = & \frac{1}{||\vec{\omega}||_{2}}|(\omega\cdot x - \omega \cdot x)|
-$$
-$$
+
+
  & = & \frac{1}{||\vec{\omega}||_{2}}|\omega\cdot x_0 + b|
 $$
 
-1
+所以，对于误分类数据 $ (x_i, y_i) $ 而言，
+
+$$
+-y_i(\omega\cdot x_i + b) > 0
+$$
