@@ -52,7 +52,7 @@ $$
 T={(x_1, y_1), ..., (x_N, y_N)}
 $$
 
-其中 $ x \subseteq R^n $ ，$ y \subseteq \left{+1, -1\right} $ ，如果存在超平面S
+其中 $ x \subseteq R^n $ ，$ y \subseteq \left{ +1, -1 \right} $ ，如果存在超平面S
 
 $$
 \omega\cdot x + b = 0
@@ -113,4 +113,4 @@ $$
 
 
 ## 对偶形式
-11
+$1 2 3 \{1 \}$
