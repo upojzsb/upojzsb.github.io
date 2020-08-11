@@ -114,13 +114,10 @@ $$
 的求解。
 
 $$
-\begin{equation}
-\begin{aligned}
-\theta ^{*},\theta ^{'*}&= \argmin\limits_{\theta,\theta^{'}}\frac{1}{n}\sum_{n}^{i=1}L\left (\textbf{x}^{(i)},\textbf{x}^{'(i)}  \right )\\
-&=\argmin\limits_{\theta,\theta^{'}}\frac{1}{n}\sum_{n}^{i=1}L\left (\textbf{x}^{(i)},g_{\theta ^{'}}\left ( f_{\theta }\left ( \textbf{x}^{i}\right )\right )\right )
-\end{aligned}
-\label{f2}
-\end{equation}
+\begin{align}
+h(x) =& \frac{1}{\int_xt(x)\mathrm{d}x} \tag{1}\\
+f(x) =& \frac{1}{\int_x\eta(x)\mathrm{d}x}g(x)\tag{2}
+\end{align}
 $$
 
 ## 对偶形式
