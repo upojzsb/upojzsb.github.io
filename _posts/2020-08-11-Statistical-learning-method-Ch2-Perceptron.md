@@ -130,8 +130,3 @@ b := b + \lambda y_i
 $$
 
 其中 $$ (x_i, y_i) \in M, 0 < \lambda \le 1 $$ ， $ \lambda $为学习率，控制参数更新的尺度。
-
-## 对偶形式
-$1 2 3 \{ 1 \}$
-1
-$ \lbrace 111 \rbrace $
