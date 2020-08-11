@@ -105,12 +105,22 @@ $$
 T={(x_1, y_1), ..., (x_N, y_N)}
 $$
 
-感知机算法就是对优化
+感知机算法就是对最小化问题
 
 $$
 \min_{\omega, b} L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)
 $$
 
 的求解。
+
+$$
+\begin{equation}
+\begin{aligned}
+\theta ^{*},\theta ^{'*}&= \argmin\limits_{\theta,\theta^{'}}\frac{1}{n}\sum_{n}^{i=1}L\left (\textbf{x}^{(i)},\textbf{x}^{'(i)}  \right )\\
+&=\argmin\limits_{\theta,\theta^{'}}\frac{1}{n}\sum_{n}^{i=1}L\left (\textbf{x}^{(i)},g_{\theta ^{'}}\left ( f_{\theta }\left ( \textbf{x}^{i}\right )\right )\right )
+\end{aligned}
+\label{f2}
+\end{equation}
+$$
 
 ## 对偶形式
