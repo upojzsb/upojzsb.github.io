@@ -124,10 +124,12 @@ $$
 所以如果采用随机梯度下降法，可以采用以下方式更新参数：
 
 $$
-\omega := \omega + y_i x_i
+\omega := \omega + \lambda y_i x_i
 
-b := b + y_i
+b := b + \lambda y_i
 $$
+
+其中 $$ (x_i, y_i) \in M, 0 < \lambda \le 1 $$ ， $ \lambda $为学习率，控制参数更新的尺度。
 
 ## 对偶形式
 $1 2 3 \{ 1 \}$
