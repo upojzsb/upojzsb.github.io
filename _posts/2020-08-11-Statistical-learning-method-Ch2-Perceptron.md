@@ -85,8 +85,8 @@ d & = & |\frac{\overrightarrow{PQ}\cdot\vec{\omega}}{||\vec{n}||_{2}}|
  & = & \frac{1}{||\vec{\omega}||_{2}}|\omega\cdot x_0 + b|
 $$
 
-所以，对于误分类数据 $ (x_i, y_i) $ 而言，
+所以，对于误分类数据 $ (x_i, y_i) $ 而言，可以定义其到超平面的距离：
 
 $$
--y_i(\omega\cdot x_i + b) > 0
+-\frac{1}{||\vec{\omega}||_{2}}y_i(\omega\cdot x_i + b) > 0
 $$
