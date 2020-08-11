@@ -16,7 +16,7 @@ tags:
 
 感知机是一种二分类的线性模型，其输入为实力特征的向量，输出分类结果。具体定义如下：
 
-假设输入空间 $ X \subseteq R^n $ ，输出空间 $ Y=\left\{+1, -1\right\} $ ，输入 $ x \in X $ 为输入特征的向量，输出 $ y \in Y $ 为输入向量的分类，则函数
+假设输入空间 $ X \subseteq R^n $ ，输出空间 $ Y=\left{+1, -1\right} $ ，输入 $ x \in X $ 为输入特征的向量，输出 $ y \in Y $ 为输入向量的分类，则函数
 
 $$
 f(x)=sign( \omega \cdot x+b)
@@ -52,7 +52,7 @@ $$
 T={(x_1, y_1), ..., (x_N, y_N)}
 $$
 
-其中 $ x \subseteq R^n $ ，$ y \subseteq \left\{+1, -1\right\} $ ，如果存在超平面S
+其中 $ x \subseteq R^n $ ，$ y \subseteq \left{+1, -1\right} $ ，如果存在超平面S
 
 $$
 \omega\cdot x + b = 0
