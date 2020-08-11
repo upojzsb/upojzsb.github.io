@@ -70,11 +70,19 @@ $$
 
 另一个想法是将误分类的样本到超平面距离的总和定义为损失函数，这种方式是感知机所采用的。
 
-首先定义样本到超平面的距离。已知 $ \omega $ 是超平面的法向量，假设P为超平面上一点，Q为样本点，则PQ的距离
+首先定义样本到超平面的距离。已知 $ \omega $ 是超平面的法向量，假设 $ P(x) $ 为超平面上一点，$ Q(x_0) $为样本点，则PQ的距离
 
 $$
-d & = & \frac{\overrightarrow{PQ}\cdot\vec{\omega}}{||\vec{n}||_{2} }
-& = &
+d & = & |\frac{\overrightarrow{PQ}\cdot\vec{\omega}}{||\vec{n}||_{2}}|
+$$
+$$
+ & = & |\frac{\vec{\omega}}{||\vec{\omega}||_{2}}(x_0-x)|
+$$
+$$
+ & = & \frac{1}{||\vec{\omega}||_{2}}|(\omega\cdot x - \omega \cdot x)|
+$$
+$$
+ & = & \frac{1}{||\vec{\omega}||_{2}}|\omega\cdot x_0 + b|
 $$
 
 1
