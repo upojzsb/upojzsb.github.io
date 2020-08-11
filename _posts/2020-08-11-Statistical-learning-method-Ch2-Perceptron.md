@@ -114,8 +114,7 @@ $$
 由于函数的梯度方向代表自变量使函数值增长的方向，所以在初始化参数 $ \omega $ 和 $ b $ 后可以采用梯度下降法对上述最小化问题求解。损失函数的梯度为：
 
 $$
-\nabla_\omega L(\omega , b) = -\sum_{x_i \in M} y_i x_i
-
+\nabla_\omega L(\omega , b) = -\sum_{x_i \in M} y_i x_i \\
 \nabla_b L(\omega , b) = -\sum_{x_i \in M} y_i
 $$
 
@@ -124,9 +123,8 @@ $$
 所以如果采用随机梯度下降法，可以采用以下方式更新参数：
 
 $$
-\omega := \omega + \lambda y_i x_i
-
+\omega := \omega + \lambda y_i x_i \\
 b := b + \lambda y_i
 $$
 
-其中 $$ (x_i, y_i) \in M, 0 < \lambda \le 1 $$ ， $ \lambda $为学习率，控制参数更新的尺度。
+其中 $$ (x_i, y_i) \in M $$ ，$$ 0 \lt \lambda \le 1 $$ ， $ \lambda $为学习率，控制参数更新的尺度。
