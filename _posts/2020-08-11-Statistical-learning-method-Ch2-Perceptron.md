@@ -87,7 +87,7 @@ $$
 \frac{1}{||\omega||_{2}}y_{i}(\omega\cdot x_{i} + b) > 0
 $$
 
-由于 $ \frac{1}{||\omega||_2_} $仅对数据进行等比例缩放，所以不予考虑。设 $ M $ 为误分类集合，最终得到损失函数为：
+由于 $ \frac{1}{\|\|\omega\|\|_2} $仅对数据进行等比例缩放，所以不予考虑。设 $ M $ 为误分类集合，最终得到损失函数为：
 
 $$
 L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)
@@ -111,12 +111,6 @@ $$
 
 的求解。
 
-$$
-\begin{align}
-h(x) =& \frac{1}{\int_xt(x)\mathrm{d}x} \tag{1}\\
-f(x) =& \frac{1}{\int_x\eta(x)\mathrm{d}x}g(x)\tag{2}
-\end{align}
-$$
 
 ## 对偶形式
 22
