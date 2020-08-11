@@ -93,9 +93,7 @@ $$
 L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)
 $$
 
-# 学习算法
-
-## 原始形式
+# 学习算法（原始形式）
 
 对于数据集
 
@@ -127,4 +125,4 @@ $$
 b := b + \lambda y_i
 $$
 
-其中 $$ (x_i, y_i) \in M $$ ，$$ 0 \lt \lambda \le 1 $$ ， $ \lambda $为学习率，控制参数更新的尺度。
+其中 $ (x_i, y_i) \in M $ ，$ 0 \lt \lambda \le 1 $ ， $ \lambda $为学习率，控制参数更新的尺度。
