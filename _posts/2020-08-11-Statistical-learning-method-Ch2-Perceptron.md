@@ -52,7 +52,7 @@ $$
 T={(x_1, y_1), ..., (x_N, y_N)}
 $$
 
-其中 $ x \subseteq R^n, y \subseteq \left\{+1, -1\right\} $ ，如果存在超平面S
+其中 $ x \subseteq R^n $ ，$ y \subseteq \left\{+1, -1\right\} $ ，如果存在超平面S
 
 $$
 \omega\cdot x + b = 0
@@ -86,10 +86,10 @@ $$
 所以，对于误分类数据 $ (x_i, y_i) $ 而言，可以定义其到超平面的距离：
 
 $$
-\frac{1}{||\omega||_{2}}y_i(\omega\cdot x_i + b) > 0
+\frac{1}{||\omega||_{2}}y_{i}(\omega\cdot x_{i} + b) > 0
 $$
 
-由于 $ ||\omega||_{2} $ 仅对数据进行等比例缩放，所以不予考虑。设 $ M $ 为误分类集合，最终得到损失函数为：
+由于 $ \frac{1}{||\omega||_2} $ 仅对数据进行等比例缩放，所以不予考虑。设 $ M $ 为误分类集合，最终得到损失函数为：
 
 $$
 L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)
@@ -99,6 +99,18 @@ $$
 
 ## 原始形式
 
+对于数据集
 
+$$
+T={(x_1, y_1), ..., (x_N, y_N)}
+$$
+
+感知机算法就是对优化
+
+$$
+\min_{\omega, b} L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)
+$$
+
+的求解。
 
 ## 对偶形式
