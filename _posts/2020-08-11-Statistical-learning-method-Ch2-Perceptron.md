@@ -73,20 +73,20 @@ $$
 首先定义样本到超平面的距离。已知 $ \omega $ 是超平面的法向量，假设 $ P(x) $ 为超平面上一点，$ Q(x_0) $为样本点，则PQ的距离
 
 $$
-d & = & |\frac{\overrightarrow{PQ}\cdot\vec{\omega}}{||\vec{n}||_{2}}|
+d & = & |\frac{\vec{PQ}\cdot\omega}{||\omega||_{2}}|
 
 
- & = & |\frac{\vec{\omega}}{||\vec{\omega}||_{2}}(x_0-x)|
+ & = & |\frac{\omega}{||\omega||_{2}}(x_0-x)|
 
 
- & = & \frac{1}{||\vec{\omega}||_{2}}|(\omega\cdot x - \omega \cdot x)|
+ & = & \frac{1}{||\omega||_{2}}|(\omega\cdot x - \omega \cdot x)|
 
 
- & = & \frac{1}{||\vec{\omega}||_{2}}|\omega\cdot x_0 + b|
+ & = & \frac{1}{||\\omega||_{2}}|\omega\cdot x_0 + b|
 $$
 
 所以，对于误分类数据 $ (x_i, y_i) $ 而言，可以定义其到超平面的距离：
 
 $$
--\frac{1}{||\vec{\omega}||_{2}}y_i(\omega\cdot x_i + b) > 0
+-\frac{1}{||\\omega||_{2}}y_i(\omega\cdot x_i + b) > 0
 $$
