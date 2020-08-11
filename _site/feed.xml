@@ -5,9 +5,51 @@
     <description>Justice delaied is justice denied</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 11 Aug 2020 18:42:32 +0800</pubDate>
-    <lastBuildDate>Tue, 11 Aug 2020 18:42:32 +0800</lastBuildDate>
+    <pubDate>Tue, 11 Aug 2020 18:49:12 +0800</pubDate>
+    <lastBuildDate>Tue, 11 Aug 2020 18:49:12 +0800</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
+    
+      <item>
+        <title>统计学习方法读书笔记 Ch2 感知机（Perceptron）</title>
+        <description>&lt;h1 id=&quot;模型&quot;&gt;模型&lt;/h1&gt;
+
+&lt;p&gt;感知机是一种二分类的线性模型，其输入为实力特征的向量，输出分类结果。具体定义如下：&lt;/p&gt;
+
+&lt;p&gt;假设输入空间 X \belongto R^n，输出空间Y={+1, -1}，输入 x \belongto X 为输入特征的向量，输出 y \belongto Y 为输入向量的分类，则函数&lt;/p&gt;
+
+&lt;p&gt;\($\)$&lt;/p&gt;
+
+&lt;p&gt;称为感知机，\omega \belongto R^n 和 b \belongto R 是感知机模型的参数，它们分别代表权重（权值）和偏置。sign为符号函数，定义为：&lt;/p&gt;
+
+&lt;p&gt;\($\)$&lt;/p&gt;
+</description>
+        <pubDate>Tue, 11 Aug 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/08/11/Statistical-learning-method-Ch2-Perceptron/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/08/11/Statistical-learning-method-Ch2-Perceptron/</guid>
+        
+        <category>Statistical learning method</category>
+        
+        <category>Study notes</category>
+        
+        <category>Perceptron</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>This is title</title>
+        <description>&lt;h1 id=&quot;title&quot;&gt;Title&lt;/h1&gt;
+
+&lt;p&gt;content&lt;/p&gt;
+</description>
+        <pubDate>Sun, 21 Apr 2019 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/04/21/This-is-Title/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/04/21/This-is-Title/</guid>
+        
+        <category>Tylor</category>
+        
+        
+      </item>
     
   </channel>
 </rss>
