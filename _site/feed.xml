@@ -5,23 +5,179 @@
     <description>Justice delaied is justice denied</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 11 Aug 2020 18:49:12 +0800</pubDate>
-    <lastBuildDate>Tue, 11 Aug 2020 18:49:12 +0800</lastBuildDate>
-    <generator>Jekyll v4.1.1</generator>
+    <pubDate>Fri, 14 Aug 2020 19:36:38 +0800</pubDate>
+    <lastBuildDate>Fri, 14 Aug 2020 19:36:38 +0800</lastBuildDate>
+    <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>统计学习方法读书笔记 Ch3 k近邻法（k-nearist neighbor）</title>
+        <description>&lt;h1 id=&quot;模型&quot;&gt;模型&lt;/h1&gt;
+
+&lt;p&gt;k近邻算法可以用于分类和回归问题，这里对其在分类方面的应用进行讨论。作为一种分类问题的解决方法，k近邻法接收待分类实例特征的向量作为输入，对该实例的分类结果作为输出。具体定义如下：&lt;/p&gt;
+
+&lt;p&gt;存在训练集：&lt;/p&gt;
+
+\[T = \lbrace (x_1, y_1), ..., (x_N, y_N) \rbrace\]
+
+&lt;p&gt;输入实例 $ x $，其中 $ x, x_i \subseteq R^n, y \in \lbrace c_1, …, c_K \rbrace $，$ K $ 为类别的个数，k近邻算法会根据样本集中，与 $ x $ 距离最接近的 $ k $ 个样本，通过某种策略（例如多数表决法）判断出其类别 $ y $。&lt;/p&gt;
+
+&lt;p&gt;如果采用多数表决法，则 $ y $ 的取值可以表示为：&lt;/p&gt;
+
+\[y = \arg\max_{c_j} \sum_{x_i \in N_k(x)} I(y_i = c_j)\]
+
+&lt;p&gt;其中， $ N_k(x) $表示 $ x $ 的邻域，即和 $ x $ 最接近的 $ k $ 个样本构成的集合； $ I(y_i == c_j) $ 为指示函数，当 $ y_i = c_j $ 时为1，否则为0。&lt;/p&gt;
+
+&lt;p&gt;k近邻算法没有显式的训练过程。&lt;/p&gt;
+
+&lt;h1 id=&quot;要素&quot;&gt;要素&lt;/h1&gt;
+
+&lt;h2 id=&quot;距离度量&quot;&gt;距离度量&lt;/h2&gt;
+
+&lt;p&gt;两个向量的距离反映了它们之间的相似度（参考&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E6%80%A7&quot;&gt;余弦相似度&lt;/a&gt;)。k近邻算法一般接受 $ x \in R^n $作为参数，所以可以选用 $ p $ 范数作为距离，一般采用 $ p = 2$，但 $ p $也可以取其他值（ $ p \ge 1 $ ）。&lt;/p&gt;
+
+&lt;p&gt;一般的 $ p $ 范数表示如下：&lt;/p&gt;
+
+\[L_p(x_i, x_j) = \Bigg( \sum_{l=1}^{n}|x_i^{(l)}-x_j^{(l)}|^p \Bigg)^{\frac{1}{p}}\]
+
+&lt;p&gt;其中，$ x_i， x_j \subseteq R^n $。&lt;/p&gt;
+
+&lt;p&gt;当 $ p = 1 $ 时，称为曼哈顿距离：&lt;/p&gt;
+
+\[L_1(x_i, x_j) = \sum_{l=1}^{n}|x_i^{(l)}-x_j^{(l)}|\]
+
+&lt;p&gt;当 $ p = 2 $ 时，称为欧几里得距离：&lt;/p&gt;
+
+\[L_2(x_i, x_j) = \Bigg( \sum_{l=1}^{n}|x_i^{(l)}-x_j^{(l)}|^2 \Bigg)^{\frac{1}{2}}\]
+
+&lt;p&gt;当 $ p = \infty $ 时，范数表示所有坐标中距离的最大值：&lt;/p&gt;
+
+\[L_\infty(x_i, x_j) = \max_l |x_{i}^{l}-x_{j}^{l}|\]
+
+&lt;h2 id=&quot;-k--值的选择&quot;&gt;$ k $ 值的选择&lt;/h2&gt;
+
+&lt;p&gt;$ k $ 值的选取一定程度上反映了模型的复杂度， $ k $ 越大表明模型越简单，$ k $越小表明模型越复杂。&lt;/p&gt;
+
+&lt;p&gt;当 $ k $ 较小时，k近邻算法会从样本集中选取和输入实例距离最接近的较少几个样本通过某种策略对输入实例的类型进行估计，这种方式对样本集中的噪音极为敏感，如果邻域中的样本恰好为噪音，则预测结果不可靠。&lt;/p&gt;
+
+&lt;p&gt;当 $ k $ 较大时，算法会根据较大的邻域中样本的类别对输入实例的类型进行估计，这种情况下样本的噪声会被平均，影响较小，但如果邻域选择较大，其它不相似的样本也会参与决策，使得预测结果不可靠。&lt;/p&gt;
+
+&lt;p&gt;考虑两种极端情况：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;当 $ k = 1 $ 时，输入实例的类型仅有离它最近的样本决定，此时称为最近邻算法。&lt;/li&gt;
+  &lt;li&gt;当 $ k = N $ 时，所有的样本均参与决策，如果采用多数表决法，则输出为训练集中存在最多的类别。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;决策规则&quot;&gt;决策规则&lt;/h2&gt;
+
+&lt;p&gt;k近邻算法一般采用多数表决（等权），即将在邻域中出现最多的类别作为实例类别输出。&lt;/p&gt;
+
+&lt;p&gt;k近邻算法还可以采用加权算法，例如对邻域中距离实例较远的点赋予较低的权重，距离较近的点赋予较高的权重。&lt;/p&gt;
+</description>
+        <pubDate>Fri, 14 Aug 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/08/14/Statistical-learning-method-Ch3-KNN/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/08/14/Statistical-learning-method-Ch3-KNN/</guid>
+        
+        <category>Statistical learning method</category>
+        
+        <category>Study notes</category>
+        
+        <category>kNN</category>
+        
+        <category>k-nearist neighbor</category>
+        
+        
+      </item>
     
       <item>
         <title>统计学习方法读书笔记 Ch2 感知机（Perceptron）</title>
         <description>&lt;h1 id=&quot;模型&quot;&gt;模型&lt;/h1&gt;
 
-&lt;p&gt;感知机是一种二分类的线性模型，其输入为实力特征的向量，输出分类结果。具体定义如下：&lt;/p&gt;
+&lt;p&gt;感知机是一种二分类的线性模型，其输入为实例特征的向量，输出分类结果。具体定义如下：&lt;/p&gt;
 
-&lt;p&gt;假设输入空间 X \belongto R^n，输出空间Y={+1, -1}，输入 x \belongto X 为输入特征的向量，输出 y \belongto Y 为输入向量的分类，则函数&lt;/p&gt;
+&lt;p&gt;假设输入空间 $ X \subseteq R^n $ ，输出空间 $ Y = \lbrace +1, -1 \rbrace $ ，输入 $ x \in X $ 为输入特征的向量，输出 $ y \in Y $ 为输入向量的分类，则函数&lt;/p&gt;
 
-&lt;p&gt;\($\)$&lt;/p&gt;
+\[f(x)=sign( \omega \cdot x+b)\]
 
-&lt;p&gt;称为感知机，\omega \belongto R^n 和 b \belongto R 是感知机模型的参数，它们分别代表权重（权值）和偏置。sign为符号函数，定义为：&lt;/p&gt;
+&lt;p&gt;称为感知机，$ \omega \subseteq R^n $ 和 $ b \subseteq R $ 是感知机模型的参数，它们分别代表权重（权值）和偏置。sign为符号函数，定义为：&lt;/p&gt;
 
-&lt;p&gt;\($\)$&lt;/p&gt;
+\[sign(x) =
+\begin{cases}
++1, &amp;amp; x \ge 0 \\
+-1, &amp;amp; x &amp;lt; 0
+\end{cases}\]
+
+&lt;h1 id=&quot;几何解释&quot;&gt;几何解释&lt;/h1&gt;
+
+&lt;p&gt;感知机在训练完成后得到方程&lt;/p&gt;
+
+\[\omega\cdot x +b = 0\]
+
+&lt;p&gt;对应在 $ R^n $ 空间中的超平面，其中 $ \omega $ 为超平面的法向量， $ b $ 为截距。该超平面将空间分为两部分，位于不同部分的样本分别为正例和负例。&lt;/p&gt;
+
+&lt;h1 id=&quot;学习策略&quot;&gt;学习策略&lt;/h1&gt;
+
+&lt;h2 id=&quot;线性可分性&quot;&gt;线性可分性&lt;/h2&gt;
+
+&lt;p&gt;对于数据集&lt;/p&gt;
+
+\[T=\lbrace (x_1, y_1), ..., (x_N, y_N) \rbrace\]
+
+&lt;p&gt;其中 $ x \subseteq R^n $ ，$ y \subseteq \lbrace +1, -1 \rbrace $ ，如果存在超平面S&lt;/p&gt;
+
+\[\omega\cdot x + b = 0\]
+
+&lt;p&gt;可以将数据集中的正例和负例完全正确的区分，则称该数据集线性可分。&lt;/p&gt;
+
+&lt;h2 id=&quot;感知机学习策略&quot;&gt;感知机学习策略&lt;/h2&gt;
+
+&lt;p&gt;假设数据集线性可分，那么感知机的目的就是寻找可以将数据集中的正例负例完全正确区分的超平面S。我们可以定义一个损失函数作为学习策略，表示感知机分类错误的严重情况，然后最小化这个损失函数。&lt;/p&gt;
+
+&lt;p&gt;一个自然的想法是将损失函数定义为误分类的数量，但是这个函数并不关于 $ \omega $ 和 $ b $ 可导，难以优化。&lt;/p&gt;
+
+&lt;p&gt;另一个想法是将误分类的样本到超平面距离的总和定义为损失函数，这种方式是感知机所采用的。&lt;/p&gt;
+
+&lt;p&gt;首先定义样本到超平面的距离。已知 $ \omega $ 是超平面的法向量，假设 $ P(x) $ 为超平面上一点，$ Q(x_0) $为样本点，则PQ的距离&lt;/p&gt;
+
+\[\begin{align}
+d =&amp;amp; |\frac{\vec{PQ}\cdot\omega}{||\omega||_{2}}| \\
+=&amp;amp; \frac{\omega}{||\omega||_{2}}|x_0-x| \\
+=&amp;amp;\frac{1}{||\omega||_{2}}|\omega\cdot x_0 - \omega \cdot x| \\
+=&amp;amp; \frac{1}{||\omega||_{2}}|\omega\cdot x_0 + b|
+\end{align}\]
+
+&lt;p&gt;所以，对于误分类数据 $ (x_i, y_i) $ 而言，可以定义其到超平面的距离：&lt;/p&gt;
+
+\[\frac{1}{||\omega||_{2}}y_{i}(\omega\cdot x_{i} + b) &amp;gt; 0\]
+
+&lt;p&gt;由于 $ \frac{1}{||\omega||_2} $仅对数据进行等比例缩放，所以不予考虑。设 $ M $ 为误分类集合，最终得到损失函数为：&lt;/p&gt;
+
+\[L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)\]
+
+&lt;h1 id=&quot;学习算法原始形式&quot;&gt;学习算法（原始形式）&lt;/h1&gt;
+
+&lt;p&gt;对于数据集&lt;/p&gt;
+
+\[T=\lbrace (x_1, y_1), ..., (x_N, y_N) \rbrace\]
+
+&lt;p&gt;感知机算法就是对最小化问题&lt;/p&gt;
+
+\[\min_{\omega, b} L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)\]
+
+&lt;p&gt;的求解。&lt;/p&gt;
+
+&lt;p&gt;由于函数的梯度方向代表自变量使函数值增长的方向，所以在初始化参数 $ \omega $ 和 $ b $ 后可以采用梯度下降法对上述最小化问题求解。损失函数的梯度为：&lt;/p&gt;
+
+\[\nabla_\omega L(\omega , b) = -\sum_{x_i \in M} y_i x_i \\
+\nabla_b L(\omega , b) = -\sum_{x_i \in M} y_i\]
+
+&lt;p&gt;其中，M为误分类点的集合。&lt;/p&gt;
+
+&lt;p&gt;所以如果采用随机梯度下降法，可以采用以下方式更新参数：&lt;/p&gt;
+
+\[\omega := \omega + \lambda y_i x_i \\
+b := b + \lambda y_i\]
+
+&lt;p&gt;其中 $ (x_i, y_i) \in M $ ，$ 0 \lt \lambda \le 1 $ ， $ \lambda $为学习率，控制参数更新的尺度。&lt;/p&gt;
 </description>
         <pubDate>Tue, 11 Aug 2020 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2020/08/11/Statistical-learning-method-Ch2-Perceptron/</link>
@@ -32,21 +188,6 @@
         <category>Study notes</category>
         
         <category>Perceptron</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>This is title</title>
-        <description>&lt;h1 id=&quot;title&quot;&gt;Title&lt;/h1&gt;
-
-&lt;p&gt;content&lt;/p&gt;
-</description>
-        <pubDate>Sun, 21 Apr 2019 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2019/04/21/This-is-Title/</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/04/21/This-is-Title/</guid>
-        
-        <category>Tylor</category>
         
         
       </item>

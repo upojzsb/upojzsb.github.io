@@ -20,7 +20,7 @@
     <meta name="keywords"  content="upojzsb's blog">
     <meta name="theme-color" content="#000000">
     
-    <title>This is title - upojzsb's blog</title>
+    <title>统计学习方法读书笔记 Ch3 k近邻法（k-nearist neighbor） - upojzsb's blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/2019/04/21/This-is-Title/">
+    <link rel="canonical" href="http://localhost:4000/2020/08/14/Statistical-learning-method-Ch3-KNN/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -164,13 +164,13 @@
 
     <!-- Image to hack wechat -->
 <!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
-<!-- <img src="/img/post-bg-swift2.jpg" width="0" height="0"> -->
+<!-- <img src="/img/slm-v2.jpg" width="0" height="0"> -->
 
 <!-- Post Header -->
 <style type="text/css">
     header.intro-header{
         position: relative;
-        background-image: url('/img/post-bg-swift2.jpg')
+        background-image: url('/img/slm-v2.jpg')
     }
 
     
@@ -183,15 +183,21 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#Tylor" title="Tylor">Tylor</a>
+                        <a class="tag" href="/tags/#Statistical learning method" title="Statistical learning method">Statistical learning method</a>
+                        
+                        <a class="tag" href="/tags/#Study notes" title="Study notes">Study notes</a>
+                        
+                        <a class="tag" href="/tags/#kNN" title="kNN">kNN</a>
+                        
+                        <a class="tag" href="/tags/#k-nearist neighbor" title="k-nearist neighbor">k-nearist neighbor</a>
                         
                     </div>
-                    <h1>This is title</h1>
+                    <h1>统计学习方法读书笔记 Ch3 k近邻法（k-nearist neighbor）</h1>
                     
                     
-                    <h2 class="subheading">This is subtitle</h2>
+                    <h2 class="subheading">Statistical learning method study notes Ch3. k-nearist neighbor</h2>
                     
-                    <span class="meta">Posted by Wang Pei on April 21, 2019</span>
+                    <span class="meta">Posted by UPOJZSB on August 14, 2020</span>
                 </div>
             </div>
         </div>
@@ -209,22 +215,80 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-				<h1 id="title">Title</h1>
+				<h1 id="模型">模型</h1>
 
-<p>content</p>
+<p>k近邻算法可以用于分类和回归问题，这里对其在分类方面的应用进行讨论。作为一种分类问题的解决方法，k近邻法接收待分类实例特征的向量作为输入，对该实例的分类结果作为输出。具体定义如下：</p>
+
+<p>存在训练集：</p>
+
+\[T = \lbrace (x_1, y_1), ..., (x_N, y_N) \rbrace\]
+
+<p>输入实例 $ x $，其中 $ x, x_i \subseteq R^n, y \in \lbrace c_1, …, c_K \rbrace $，$ K $ 为类别的个数，k近邻算法会根据样本集中，与 $ x $ 距离最接近的 $ k $ 个样本，通过某种策略（例如多数表决法）判断出其类别 $ y $。</p>
+
+<p>如果采用多数表决法，则 $ y $ 的取值可以表示为：</p>
+
+\[y = \arg\max_{c_j} \sum_{x_i \in N_k(x)} I(y_i = c_j)\]
+
+<p>其中， $ N_k(x) $表示 $ x $ 的邻域，即和 $ x $ 最接近的 $ k $ 个样本构成的集合； $ I(y_i == c_j) $ 为指示函数，当 $ y_i = c_j $ 时为1，否则为0。</p>
+
+<p>k近邻算法没有显式的训练过程。</p>
+
+<h1 id="要素">要素</h1>
+
+<h2 id="距离度量">距离度量</h2>
+
+<p>两个向量的距离反映了它们之间的相似度（参考<a href="https://zh.wikipedia.org/wiki/%E4%BD%99%E5%BC%A6%E7%9B%B8%E4%BC%BC%E6%80%A7">余弦相似度</a>)。k近邻算法一般接受 $ x \in R^n $作为参数，所以可以选用 $ p $ 范数作为距离，一般采用 $ p = 2$，但 $ p $也可以取其他值（ $ p \ge 1 $ ）。</p>
+
+<p>一般的 $ p $ 范数表示如下：</p>
+
+\[L_p(x_i, x_j) = \Bigg( \sum_{l=1}^{n}|x_i^{(l)}-x_j^{(l)}|^p \Bigg)^{\frac{1}{p}}\]
+
+<p>其中，$ x_i， x_j \subseteq R^n $。</p>
+
+<p>当 $ p = 1 $ 时，称为曼哈顿距离：</p>
+
+\[L_1(x_i, x_j) = \sum_{l=1}^{n}|x_i^{(l)}-x_j^{(l)}|\]
+
+<p>当 $ p = 2 $ 时，称为欧几里得距离：</p>
+
+\[L_2(x_i, x_j) = \Bigg( \sum_{l=1}^{n}|x_i^{(l)}-x_j^{(l)}|^2 \Bigg)^{\frac{1}{2}}\]
+
+<p>当 $ p = \infty $ 时，范数表示所有坐标中距离的最大值：</p>
+
+\[L_\infty(x_i, x_j) = \max_l |x_{i}^{l}-x_{j}^{l}|\]
+
+<h2 id="-k--值的选择">$ k $ 值的选择</h2>
+
+<p>$ k $ 值的选取一定程度上反映了模型的复杂度， $ k $ 越大表明模型越简单，$ k $越小表明模型越复杂。</p>
+
+<p>当 $ k $ 较小时，k近邻算法会从样本集中选取和输入实例距离最接近的较少几个样本通过某种策略对输入实例的类型进行估计，这种方式对样本集中的噪音极为敏感，如果邻域中的样本恰好为噪音，则预测结果不可靠。</p>
+
+<p>当 $ k $ 较大时，算法会根据较大的邻域中样本的类别对输入实例的类型进行估计，这种情况下样本的噪声会被平均，影响较小，但如果邻域选择较大，其它不相似的样本也会参与决策，使得预测结果不可靠。</p>
+
+<p>考虑两种极端情况：</p>
+<ul>
+  <li>当 $ k = 1 $ 时，输入实例的类型仅有离它最近的样本决定，此时称为最近邻算法。</li>
+  <li>当 $ k = N $ 时，所有的样本均参与决策，如果采用多数表决法，则输出为训练集中存在最多的类别。</li>
+</ul>
+
+<h2 id="决策规则">决策规则</h2>
+
+<p>k近邻算法一般采用多数表决（等权），即将在邻域中出现最多的类别作为实例类别输出。</p>
+
+<p>k近邻算法还可以采用加权算法，例如对邻域中距离实例较远的点赋予较低的权重，距离较近的点赋予较高的权重。</p>
 
 
                 <hr style="visibility: hidden;">
 
                 <ul class="pager">
                     
-                    
-                    <li class="next">
+                    <li class="previous">
                         <a href="/2020/08/11/Statistical-learning-method-Ch2-Perceptron/" data-toggle="tooltip" data-placement="top" title="统计学习方法读书笔记 Ch2 感知机（Perceptron）">
-                        Next<br>
+                        Previous<br>
                         <span>统计学习方法读书笔记 Ch2 感知机（Perceptron）</span>
                         </a>
                     </li>
+                    
                     
                 </ul>
 
@@ -267,6 +331,16 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
         				
+                            
+                				<a href="/tags/#Statistical learning method" title="Statistical learning method" rel="2">
+                                    Statistical learning method
+                                </a>
+                            
+        				
+                            
+                				<a href="/tags/#Study notes" title="Study notes" rel="2">
+                                    Study notes
+                                </a>
                             
         				
                             
@@ -447,6 +521,21 @@
 
 
 <!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-175255565-1';
+    var _gaDomain = 'auto';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
 
 
 
