@@ -53,7 +53,7 @@ gitalk:
   clientSecret:     #生成的clientSecret
   repo: upojzsb.github.io    #仓库名称
   owner:     #github用户名
-  admin: 
+  admin:
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 # 统计
@@ -71,10 +71,10 @@ chrome-tab-theme-color: "#000000"
 service-worker: true
 
 # Friends
-friends: [
+# friends: [
 #    {
 #        title: "Apple Developer",
 #        href: "https://developer.apple.com/"
 #    }
-]
+# ]
 theme: jekyll-theme-slate
