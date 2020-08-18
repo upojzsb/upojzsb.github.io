@@ -20,7 +20,7 @@
     <meta name="keywords"  content="upojzsb's blog">
     <meta name="theme-color" content="#000000">
     
-    <title>统计学习方法读书笔记 Ch2 感知机（Perceptron） - upojzsb's blog</title>
+    <title>统计学习方法读书笔记 Ch4 朴素贝叶斯法（Naive Bayes） - upojzsb's blog</title>
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="/pwa/manifest.json">
@@ -32,7 +32,7 @@
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="http://localhost:4000/2020/08/11/Statistical-learning-method-Ch2-Perceptron/">
+    <link rel="canonical" href="http://localhost:4000/2020/08/18/Statistical-learning-method-Ch4-Naive-Bayes/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -187,15 +187,15 @@
                         
                         <a class="tag" href="/tags/#Study notes" title="Study notes">Study notes</a>
                         
-                        <a class="tag" href="/tags/#Perceptron" title="Perceptron">Perceptron</a>
+                        <a class="tag" href="/tags/#Naive Bayes" title="Naive Bayes">Naive Bayes</a>
                         
                     </div>
-                    <h1>统计学习方法读书笔记 Ch2 感知机（Perceptron）</h1>
+                    <h1>统计学习方法读书笔记 Ch4 朴素贝叶斯法（Naive Bayes）</h1>
                     
                     
-                    <h2 class="subheading">Statistical learning method study notes Ch2. Perceptron</h2>
+                    <h2 class="subheading">Statistical learning method study notes Ch4. Naive Bayes</h2>
                     
-                    <span class="meta">Posted by UPOJZSB on August 11, 2020</span>
+                    <span class="meta">Posted by UPOJZSB on August 18, 2020</span>
                 </div>
             </div>
         </div>
@@ -215,105 +215,91 @@
 
 				<h1 id="模型">模型</h1>
 
-<p>感知机是一种二分类的线性模型，其输入为实例特征的向量，输出分类结果。具体定义如下：</p>
+<p>朴素贝叶斯算法是一种基于贝叶斯定理和特征条件独立假设的分类算法。其接受待分类实例的特征向量作为输入，对该实例分类的结果作为输出。具体定义如下：</p>
 
-<p>假设输入空间 $ X \subseteq R^n $ ，输出空间 $ Y = \lbrace +1, -1 \rbrace $ ，输入 $ x \in X $ 为输入特征的向量，输出 $ y \in Y $ 为输入向量的分类，则函数</p>
+<p>存在随机变量 $ X, Y $ 构成联合概率分布 $ P(X, Y) $ 可以生成训练集</p>
 
-\[f(x)=sign( \omega \cdot x+b)\]
+\[T = \lbrace (x_1, y_1), ..., (x_N, y_N) \rbrace\]
 
-<p>称为感知机，$ \omega \subseteq R^n $ 和 $ b \subseteq R $ 是感知机模型的参数，它们分别代表权重（权值）和偏置。sign为符号函数，定义为：</p>
+<p>其中 $ x \in R^n , y_i \in \lbrace c_1, …, c_K \rbrace $，$ K $ 为分类的数量。</p>
 
-\[sign(x) =
-\begin{cases}
-+1, &amp; x \ge 0 \\
--1, &amp; x &lt; 0
-\end{cases}\]
+<p>朴素贝叶斯就是对联合概率分布 $ P(X,Y) $ 的学习。具体的，可以根据先验概率</p>
 
-<h1 id="几何解释">几何解释</h1>
+\[P(Y=c_k)\]
 
-<p>感知机在训练完成后得到方程</p>
+<p>及条件概率</p>
 
-\[\omega\cdot x +b = 0\]
+\[P(X=x|Y=c_k) = P(X^{(1)}=x^{(1)}, ..., X^{(n)}=x^{(n)}|Y=c_k)\]
 
-<p>对应在 $ R^n $ 空间中的超平面，其中 $ \omega $ 为超平面的法向量， $ b $ 为截距。该超平面将空间分为两部分，位于不同部分的样本分别为正例和负例。</p>
+<p>学习联合分布概率 $ P(X, Y) $。</p>
 
-<h1 id="学习策略">学习策略</h1>
+<p>如果对所有 $ x \in  R^n $ 建模，则该模型的参数量会随着 $ x $ 的复杂程度指数增长，所以，一般会对模型进行简化，即进行独立条件假设：</p>
 
-<h2 id="线性可分性">线性可分性</h2>
-
-<p>对于数据集</p>
-
-\[T=\lbrace (x_1, y_1), ..., (x_N, y_N) \rbrace\]
-
-<p>其中 $ x \subseteq R^n $ ，$ y \subseteq \lbrace +1, -1 \rbrace $ ，如果存在超平面S</p>
-
-\[\omega\cdot x + b = 0\]
-
-<p>可以将数据集中的正例和负例完全正确的区分，则称该数据集线性可分。</p>
-
-<h2 id="感知机学习策略">感知机学习策略</h2>
-
-<p>假设数据集线性可分，那么感知机的目的就是寻找可以将数据集中的正例负例完全正确区分的超平面S。我们可以定义一个损失函数作为学习策略，表示感知机分类错误的严重情况，然后最小化这个损失函数。</p>
-
-<p>一个自然的想法是将损失函数定义为误分类的数量，但是这个函数并不关于 $ \omega $ 和 $ b $ 可导，难以优化。</p>
-
-<p>另一个想法是将误分类的样本到超平面距离的总和定义为损失函数，这种方式是感知机所采用的。</p>
-
-<p>首先定义样本到超平面的距离。已知 $ \omega $ 是超平面的法向量，假设 $ P(x) $ 为超平面上一点，$ Q(x_0) $为样本点，则PQ的距离</p>
+<p>将</p>
 
 \[\begin{align}
-d =&amp; |\frac{\vec{PQ}\cdot\omega}{||\omega||_{2}}| \\
-=&amp; \frac{\omega}{||\omega||_{2}}|x_0-x| \\
-=&amp;\frac{1}{||\omega||_{2}}|\omega\cdot x_0 - \omega \cdot x| \\
-=&amp; \frac{1}{||\omega||_{2}}|\omega\cdot x_0 + b|
+P(X=x|Y=c_k) =&amp; P(X^{(1)}=x^{(1)}, ..., X^{(n)}=x^{(n)}|Y=c_k) \\
+=&amp; P(X^{(1)}=x^{(1)}|X^{(2)}=x^{(2)}, ..., X^{(n)}=x^{(n)},Y=c_k)\cdot \\
+&amp; ... \\
+&amp; P(X^{(n-1)}=x^{(n-1)}|X^{(n)}=x^{(n)},Y=c_k) \cdot \\
+&amp; P(X^{(n)}=x^{(n)}|Y=c_k)
 \end{align}\]
 
-<p>所以，对于误分类数据 $ (x_i, y_i) $ 而言，可以定义其到超平面的距离：</p>
+<p>简化为</p>
 
-\[\frac{1}{||\omega||_{2}}y_{i}(\omega\cdot x_{i} + b) &gt; 0\]
+\[\begin{align}
+P(X=x|Y=c_k) =&amp; P(X^{(1)}=x^{(1)}, ..., X^{(n)}=x^{(n)}|Y=c_k) \\
+=&amp; \prod_{i=1}^{n}P(X^{(i)}=x^{(i)}|Y=c_k)
+\end{align}\]
 
-<p>由于 $ \frac{1}{||\omega||_2} $仅对数据进行等比例缩放，所以不予考虑。设 $ M $ 为误分类集合，最终得到损失函数为：</p>
+<p>独立性假设认为 $ X^{(i)} $ 和 $ X^{(j)} (i \ne j)$ 之间无关，这会简化朴素贝叶斯，但同样会牺牲一定的准确率（例如在垃圾邮件分类中，词语“安全账户”和“警告”同时出现的概率与高于两词分别出现）。</p>
 
-\[L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)\]
+<p>在学习了联合概率分布后，当输入一个新实例时 $ x \in R^n $ ，会对其后验概率进行计算：</p>
 
-<h1 id="学习算法原始形式">学习算法（原始形式）</h1>
+\[\begin{align}
+P(Y=c_k|X=x) =&amp; \frac{P(X=x|Y=c_k) \cdot P(Y=c_k)}{P(X=x)} \\
+=&amp; \frac{P(X=x|Y=c_k) \cdot P(Y=c_k)}
+        {\sum_{k=1}^{K}P(X=x|Y=c_k)P(Y=c_k)} \\
+=&amp; \frac{\prod_{i=1}^{n}P(X^{(i)}=x^{(i)}|Y=c_k) \cdot P(Y=c_k)}
+        {\sum_{k=1}^{K}\Bigg(\prod_{i=1}^{n}P(X^{(i)}=x^{(i)}|Y=c_k)P(Y=c_k)\Bigg)} \\
+\end{align}\]
 
-<p>对于数据集</p>
+<p>由于对于任意实例，</p>
 
-\[T=\lbrace (x_1, y_1), ..., (x_N, y_N) \rbrace\]
+\[\sum_{k=1}^{K}\Bigg(\prod_{i=1}^{n}P(X^{(i)}=x^{(i)}|Y=c_k)P(Y=c_k)\Bigg)\]
 
-<p>感知机算法就是对最小化问题</p>
+<p>为常数，所以朴素贝叶斯分类器表示为：</p>
 
-\[\min_{\omega, b} L(\omega, b) = -\sum_{x_i\in M}y_i(\omega\cdot x_i + b)\]
+\[y = f(x) = \arg \max_{c_k} \prod_{i=1}^{n}P(X^{(i)}=x^{(i)}|Y=c_k) \cdot P(Y=c_k)\]
 
-<p>的求解。</p>
+<h1 id="参数估计">参数估计</h1>
 
-<p>由于函数的梯度方向代表自变量使函数值增长的方向，所以在初始化参数 $ \omega $ 和 $ b $ 后可以采用梯度下降法对上述最小化问题求解。损失函数的梯度为：</p>
+<p>先验概率 $ P(Y=c_k) $ 实质上是样本集 $ T $ 中，分类为 $ c_k $ 的样本的占比，即：</p>
 
-\[\nabla_\omega L(\omega , b) = -\sum_{x_i \in M} y_i x_i \\
-\nabla_b L(\omega , b) = -\sum_{x_i \in M} y_i\]
+\[P(Y=c_k) = \frac{\sum_{i=1}^{N}I(y_i = c_k)}{N}\]
 
-<p>其中，M为误分类点的集合。</p>
+<p>设 $ a \in S $ 为实例特征向量的取值范围，条件概率 $ P(X^{(i)}=a|Y=c_k) $ 实质上是样本集 $ T $ 中，分类为 $c_k $ 且 $ X^{(i)} $ 取 $ a $ 的样本数量占分类为 $ c_k $的比例，即：</p>
 
-<p>所以如果采用随机梯度下降法，可以采用以下方式更新参数：</p>
+\[P(X^{(i)}=a\|Y=c_k) = \frac{\sum_{j=1}^{N}I(X^{(i)} = a , y_j = c_k)}{\sum_{i=1}^{N}I(y_i = c_k )}\]
 
-\[\omega := \omega + \lambda y_i x_i \\
-b := b + \lambda y_i\]
+<h1 id="拉普拉斯平滑">拉普拉斯平滑</h1>
 
-<p>其中 $ (x_i, y_i) \in M $ ，$ 0 \lt \lambda \le 1 $ ， $ \lambda $为学习率，控制参数更新的尺度。</p>
+<p>利用贝叶斯对样本进行估计时，可能会出现概率为0的情况，使分类出现偏差。</p>
+
+<p>在计算概率时，可以在分子加一，并在分母加分类数量，来避免这种情况。这种方式叫拉普拉斯平滑。</p>
 
 
                 <hr style="visibility: hidden;">
 
                 <ul class="pager">
                     
-                    
-                    <li class="next">
+                    <li class="previous">
                         <a href="/2020/08/14/Statistical-learning-method-Ch3-KNN/" data-toggle="tooltip" data-placement="top" title="统计学习方法读书笔记 Ch3 k近邻法（k-nearist neighbor）">
-                        Next<br>
+                        Previous<br>
                         <span>统计学习方法读书笔记 Ch3 k近邻法（k-nearist neighbor）</span>
                         </a>
                     </li>
+                    
                     
                 </ul>
 
