@@ -16,7 +16,7 @@ sidebar-about-description: ""
 sidebar-avatar: /img/avatar_binggan.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # SNS settings
-RSS: false
+RSS: true
 # weibo_username:     暂无
 # zhihu_username:     暂无
 # github_username:    暂无
