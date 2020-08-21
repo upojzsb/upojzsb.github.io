@@ -9,6 +9,9 @@ url: "http://upojzsb.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/upojzsb/upojzsb.github.io.git" # you code repository
 
+# For footer.html btn
+github_username: upojzsb
+
 # Sidebar settings
 # sidebar: true                           # whether or not using Sidebar.
 sidebar: false                           # whether or not using Sidebar.
