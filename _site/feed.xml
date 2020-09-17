@@ -5,9 +5,69 @@
     <description>Justice delaied is justice denied</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 16 Sep 2020 12:35:05 +0800</pubDate>
-    <lastBuildDate>Wed, 16 Sep 2020 12:35:05 +0800</lastBuildDate>
+    <pubDate>Thu, 17 Sep 2020 15:57:42 +0800</pubDate>
+    <lastBuildDate>Thu, 17 Sep 2020 15:57:42 +0800</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>《信息论基础》中文第二版勘误</title>
+        <description>&lt;h1 id=&quot;书籍信息&quot;&gt;书籍信息&lt;/h1&gt;
+
+&lt;p&gt;书名：信息论基础（原书第二版）&lt;/p&gt;
+
+&lt;p&gt;原名：Elements of Information Theory, Second Edition&lt;/p&gt;
+
+&lt;p&gt;出版社：机械工业出版社&lt;/p&gt;
+
+&lt;p&gt;版次：2018年6月第一版第11次印刷&lt;/p&gt;
+
+&lt;p&gt;ISBN：978-7-111-22040-4&lt;/p&gt;
+
+&lt;h1 id=&quot;第二章&quot;&gt;第二章&lt;/h1&gt;
+
+&lt;h2 id=&quot;p14&quot;&gt;P14&lt;/h2&gt;
+
+&lt;p&gt;（2-72）下方&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;…如果仅当 $ \lambda = 0 $ 或 $ \lambda = 1 $，上式成立…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原文：&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;A function f is said to be strictly convex if equality holds only if λ = 0
+or λ = 1.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;应改为：&lt;/p&gt;
+
+&lt;p&gt;…如果仅当 $ \lambda = 0 $ 或 $ \lambda = 1 $，等号成立…&lt;/p&gt;
+
+&lt;h2 id=&quot;p15&quot;&gt;P15&lt;/h2&gt;
+
+&lt;p&gt;（2-89）下方&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;…由于 $ \log t $ 是关于 $ t $ 的严格凸函数…&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原文&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Since $ log t $ is a strictly concave function of $ t $,&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;应改为&lt;/p&gt;
+
+&lt;p&gt;…由于 $ \log t $ 是关于 $ t $ 的严格凹函数…&lt;/p&gt;
+</description>
+        <pubDate>Thu, 17 Sep 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/09/17/Mistake-Correction-of-Elements-of-Information-Theory-Chinese-Version-Second-Edition/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/09/17/Mistake-Correction-of-Elements-of-Information-Theory-Chinese-Version-Second-Edition/</guid>
+        
+        <category>Mistake Correction</category>
+        
+        <category>Elements of Information Theory</category>
+        
+        
+      </item>
     
       <item>
         <title>统计学习方法读书笔记 Ch6 逻辑斯蒂回归与最大熵模型（Logistic Regression and Maximum Entropy Model）</title>
