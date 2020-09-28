@@ -5,9 +5,177 @@
     <description>Justice delaied is justice denied</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 17 Sep 2020 16:14:37 +0800</pubDate>
-    <lastBuildDate>Thu, 17 Sep 2020 16:14:37 +0800</lastBuildDate>
+    <pubDate>Mon, 28 Sep 2020 18:49:50 +0800</pubDate>
+    <lastBuildDate>Mon, 28 Sep 2020 18:49:50 +0800</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>统计学习方法读书笔记 Ch7 支持向量机（Support Vector Machine）</title>
+        <description>&lt;h1 id=&quot;svm-模型&quot;&gt;SVM 模型&lt;/h1&gt;
+
+&lt;p&gt;SVM 是一种二分类模型。假设训练集中的样本是线性可分的， SVM 的目的是找到一个分类超平面，使得间隔最大化。满足间隔最大化的解是唯一的。&lt;/p&gt;
+
+&lt;p&gt;根据模型的复杂程度，SVM可分为线性可分支持向量机、线性支持向量机和非线性支持向量机。&lt;/p&gt;
+
+&lt;h1 id=&quot;函数间隔和几何间隔&quot;&gt;函数间隔和几何间隔&lt;/h1&gt;
+
+&lt;p&gt;对数据进行预测，该点离分类超平面越远说明本次预测的置信度越高，反之说明置信度低。在分类超平面确定时，可以通过 $ | \omega \cdot x + b | $ 反映点 $ x $ 和分类超平面的距离，由于符号表明本次预测的分类结果，所以可以用 $ y ( \omega \cdot x + b ) $ 同时对正确性和置信度进行描述。&lt;/p&gt;
+
+&lt;p&gt;称：&lt;/p&gt;
+
+\[\hat{\gamma}_i = y_i ( \omega \cdot x_i + b )\]
+
+&lt;p&gt;为超平面关于样本点的函数间隔，同时定义超平面关于数据集的函数间隔 $ \hat{\gamma} $ 为所有样本点的函数间隔的最小值。&lt;/p&gt;
+
+&lt;p&gt;但使用函数间隔来选择超平面还不够完善，只需要给 $ \omega $ 和 $ b $ 同时乘一个系数，就可以使分类超平面不变的情况下，使函数间隔就任意大。&lt;/p&gt;
+
+&lt;p&gt;可以添加一些约束条件使得间隔确定。称：&lt;/p&gt;
+
+\[\gamma_i = y_i ( \frac{\omega}{||\omega||} \cdot x_i + \frac{b}{||\omega||} )\]
+
+&lt;p&gt;为超平面关于样本点的几何间隔，同时定义超平面关于数据集的几何间隔 $ \gamma $ 为所有样本点的几何间隔的最小值。&lt;/p&gt;
+
+&lt;p&gt;从以上两式可以得知函数间隔和几何间隔之间的关系：&lt;/p&gt;
+
+\[\gamma = \frac{\hat{\gamma}}{||\omega||}\]
+
+&lt;p&gt;当 $ ||\omega|| = 1 $ 时，函数间隔和几何间隔一致。&lt;/p&gt;
+
+&lt;h1 id=&quot;线性可分-svm-模型&quot;&gt;线性可分 SVM 模型&lt;/h1&gt;
+
+&lt;h2 id=&quot;模型&quot;&gt;模型&lt;/h2&gt;
+
+&lt;p&gt;给定线性可分的训练集，通过间隔最大化找出来的分类超平面为：&lt;/p&gt;
+
+\[\omega^{*}\cdot x +b^{*} = 0\]
+
+&lt;p&gt;分类决策函数为：&lt;/p&gt;
+
+\[f(x) = sign(\omega^{*}\cdot x +b^{*})\]
+
+&lt;p&gt;该模型称为线性可分支持向量机。&lt;/p&gt;
+
+&lt;h2 id=&quot;间隔最大化的方法&quot;&gt;间隔最大化的方法&lt;/h2&gt;
+
+&lt;p&gt;首先描述以下这个问题：&lt;/p&gt;
+
+\[\begin{align}
+
+\max_{\omega, b}\ &amp;amp; \gamma \\
+
+s.t.\ &amp;amp; y_i ( \frac{\omega}{||\omega||} \cdot x_i + \frac{b}{||\omega||} )\ge \gamma , i = 1, 2, ..., N
+
+\end{align}\]
+
+&lt;p&gt;根据函数间隔和几何间隔之间的关系，改写为：&lt;/p&gt;
+
+\[\begin{align}
+
+\max_{\omega, b}\ &amp;amp; \frac{\hat{\gamma}}{||\omega||} \\
+
+s.t.\ &amp;amp; y_i ( \omega \cdot x_i + b )\ge \hat{\gamma} , i = 1, 2, ..., N
+
+\end{align}\]
+
+&lt;p&gt;由于函数间隔可以在不改变超平面的情况下任意缩放，所以令 $ \hat{\gamma} = 1 $，得到：&lt;/p&gt;
+
+\[\begin{align}
+
+\max_{\omega, b}\ &amp;amp; \frac{1}{||\omega||} \\
+
+s.t.\ &amp;amp; y_i ( \omega \cdot x_i + b ) - 1 \ge 0 , i = 1, 2, ..., N
+
+\end{align}\]
+
+&lt;p&gt;考虑到凸函数更好进行优化，最大化 $ \frac{1}{||\omega||} $ 和最小化 $ \frac{1}{2}||\omega||^2 $ 问题可以看作等价的，得到：&lt;/p&gt;
+
+\[\begin{align}
+
+\min_{\omega, b}\ &amp;amp; \frac{1}{2}||\omega||^2 \\
+
+s.t.\ &amp;amp; y_i ( \omega \cdot x_i + b )\ge \hat{\gamma} , i = 1, 2, ..., N
+
+\end{align}\]
+
+&lt;p&gt;构成了一个凸二次规划问题。&lt;/p&gt;
+
+&lt;p&gt;构建 Lagrange 函数，并对其对偶问题进行求解就可以得到本问题中线性可分支持向量机的参数。&lt;/p&gt;
+
+&lt;h2 id=&quot;支持向量&quot;&gt;支持向量&lt;/h2&gt;
+
+&lt;p&gt;在线性可分的情况下，距离超平面最近的样本称为支持向量，根据上一节谈到的约束条件，在超平面：&lt;/p&gt;
+
+\[\omega \cdot x + b = 1\]
+
+&lt;p&gt;的正例和在超平面&lt;/p&gt;
+
+\[\omega \cdot x + b = -1\]
+
+&lt;p&gt;的负例构成支持向量，这两个超平面的距离为 $  \frac{2}{||\omega||} $。&lt;/p&gt;
+
+&lt;p&gt;在决定分离超平面是，只有支持向量起作用，其它实例点不起作用。&lt;/p&gt;
+
+&lt;h1 id=&quot;一些对我来说不显然的地方&quot;&gt;一些对我来说不显然的地方&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;高中的立体几何忘得差不多了 :-(&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;1--omega-cdot-x--b--0--为什么是平面&quot;&gt;1. $ \omega \cdot x + b = 0 $ 为什么是平面&lt;/h2&gt;
+
+&lt;p&gt;已知平面 $ P $ ，设其法向量为 $ \omega $，设 $ Q $ 为平面内一定点，$ A $ 为平面内任意一点，有：&lt;/p&gt;
+
+\[\begin{align}
+\vec{AQ}\perp\vec{\omega} \Rightarrow&amp;amp; \vec{AQ} \cdot \vec{\omega} = 0 \\
+                          \Rightarrow&amp;amp; (\vec{OQ} - \vec{OA}) \cdot \vec{\omega} = 0 \\
+                          \Rightarrow&amp;amp; \vec{OQ} \cdot \vec{\omega} - \vec{OA} \cdot \vec{\omega} = 0
+\end{align}\]
+
+&lt;p&gt;令 $ x = \vec{OQ}, b = -\vec{OA} \cdot \vec{\omega}$ 则有：&lt;/p&gt;
+
+\[\omega \cdot x + b = 0\]
+
+&lt;p&gt;显然，对于所有的 $ x \in P $ ，均有 $ \omega \cdot x + b = 0 $ ；若 $ x \not\in P $ ，则必然 $ \omega \cdot x + b \neq 0 $ 。&lt;/p&gt;
+
+&lt;p&gt;故 $ \omega \cdot x + b = 0 $ 表示一个平面。&lt;/p&gt;
+
+&lt;h2 id=&quot;2---omega-cdot-x--b---为什么反映了平面外一点到平面的距离&quot;&gt;2. $ | \omega \cdot x + b | $ 为什么反映了平面外一点到平面的距离&lt;/h2&gt;
+
+&lt;p&gt;已知平面 $ P $ ，设其法向量为 $ \omega $，设 $ Q $ 为平面内 $ \omega $ 的起点，$ A $ 为平面外一点，如下图所示，
+&lt;img src=&quot;/img/post/slm/sim.ch7-distance_dot2plane.jpg&quot; alt=&quot;Distance Between Dot and Plane&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;显然，$ A $ 点在 $ \omega $ 方向上的投影 $ A’ $ 到 $ Q $ 点之间的距离 $ d $ 为 $ A $ 点到平面 $ P $ 的距离。&lt;/p&gt;
+
+&lt;p&gt;设 $ \vec{QA} $ 和 $ \omega $ 的夹角为 $ \theta $ ，则有：&lt;/p&gt;
+
+\[\begin{align}
+d =&amp;amp; |\vec{QA}| \cos \theta \\
+  =&amp;amp; |\vec{QA}| \frac{ \vec{QA} \cdot \vec{\omega} }{|\vec{QA}|\times|\vec{\omega}|} \\
+  =&amp;amp; \frac{ \vec{QA} \cdot \vec{\omega} }{|\vec{\omega}|} \\
+  =&amp;amp; \frac{1}{|\vec{\omega}|}(\vec{\omega}\cdot\vec{OA}-\vec{\omega}\cdot\vec{OQ}) \\
+
+由于Q \in P，所以\vec{OQ} \cdot \vec{\omega} + b = 0，故：\\
+
+  =&amp;amp; \frac{1}{|\vec{\omega}|}(\vec{\omega}\cdot\vec{OA}+b) \\
+
+\end{align}\]
+
+&lt;p&gt;故$ | \omega \cdot x + b | $ 为什么反映了平面外一点到平面的距离。&lt;/p&gt;
+</description>
+        <pubDate>Mon, 28 Sep 2020 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2020/09/28/Statistical-learning-method-Ch7-Support-Vector-Machine/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/09/28/Statistical-learning-method-Ch7-Support-Vector-Machine/</guid>
+        
+        <category>Statistical learning method</category>
+        
+        <category>Study notes</category>
+        
+        <category>Support Vector Machine</category>
+        
+        <category>SVM</category>
+        
+        
+      </item>
     
       <item>
         <title>《信息论基础》中文第二版勘误</title>
@@ -146,8 +314,8 @@ P(Y=K|x) =&amp;amp; \frac{1}{1+\sum_{i=1}^{K-1}\exp (\omega_i\cdot x)}
 &lt;p&gt;最大熵模型认为，在所有可能的概率模型中，熵最大的模型是最好的模型。&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Sep 2020 00:00:00 +0800</pubDate>
-        <link>http://localhost:4000/2020/09/16/Statistic-learning-method-Ch6-Logistic-Regression-and-Maximum-Entropy-Model/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/09/16/Statistic-learning-method-Ch6-Logistic-Regression-and-Maximum-Entropy-Model/</guid>
+        <link>http://localhost:4000/2020/09/16/Statistical-learning-method-Ch6-Logistic-Regression-and-Maximum-Entropy-Model/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020/09/16/Statistical-learning-method-Ch6-Logistic-Regression-and-Maximum-Entropy-Model/</guid>
         
         <category>Statistical learning method</category>
         
