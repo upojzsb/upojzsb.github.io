@@ -49,3 +49,17 @@ or λ = 1.
 应改为
 
 ...由于 $ \log t $ 是关于 $ t $ 的严格凹函数...
+
+# 第五章
+
+## P60
+
+例5.1.3下方的定义
+>...则称这个编码是非奇异的（nonsigular）。
+
+原文
+> A code is said to be nonsingular...
+
+应改为
+
+...则称这个编码是非奇异的（nonsingular）。
