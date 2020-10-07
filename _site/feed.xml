@@ -5,8 +5,8 @@
     <description>Justice delaied is justice denied</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 07 Oct 2020 16:30:20 +0800</pubDate>
-    <lastBuildDate>Wed, 07 Oct 2020 16:30:20 +0800</lastBuildDate>
+    <pubDate>Wed, 07 Oct 2020 22:59:58 +0800</pubDate>
+    <lastBuildDate>Wed, 07 Oct 2020 22:59:58 +0800</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
@@ -115,6 +115,47 @@ s.t.\ &amp;amp; y_i ( \omega \cdot x_i + b )\ge \hat{\gamma} , i = 1, 2, ..., N
 
 &lt;p&gt;在决定分离超平面时，只有支持向量起作用，其它实例点不起作用。&lt;/p&gt;
 
+&lt;h1 id=&quot;-&quot;&gt;$ $&lt;/h1&gt;
+&lt;h1 id=&quot;线性-svm&quot;&gt;线性 SVM&lt;/h1&gt;
+
+&lt;h2 id=&quot;模型-1&quot;&gt;模型&lt;/h2&gt;
+
+&lt;p&gt;由于实际数据中存在误差和噪声，同时考虑到不同数据服从的分布不同，所以实际数据几乎没有线性可分的。在线性不可分的情况下上文中所讲的：&lt;/p&gt;
+
+\[\begin{align}
+
+\min_{\omega, b}\ &amp;amp; \frac{1}{2}||\omega||^2 \\
+
+s.t.\ &amp;amp; y_i ( \omega \cdot x_i + b )\ge 1 , i = 1, 2, ..., N
+
+\end{align}\]
+
+&lt;p&gt;中的约束项就不满足，优化问题就进行不下去了。&lt;/p&gt;
+
+&lt;p&gt;考虑到这个问题，我们可以对数据集引入松弛变量 $ \xi_i \ge 0 $ 使约束条件变为：&lt;/p&gt;
+
+\[y_i ( \omega \cdot x_i + b )\ge 1 - \xi_i , i = 1, 2, ..., N\]
+
+&lt;p&gt;然后，令目标问题为：&lt;/p&gt;
+
+\[\frac{1}{2}||\omega||^2 + C\sum_{i=1}^{N}\xi_i\]
+
+&lt;p&gt;式中， $ C \gt 0 $ 为惩罚参数。这样对误分类的要求降低，同时可以通过控制惩罚参数来经可能降低误分类点。&lt;/p&gt;
+
+&lt;p&gt;整个优化问题可以写为：&lt;/p&gt;
+
+\[\begin{align}
+
+\min_{\omega, b}\ &amp;amp; \frac{1}{2}||\omega||^2 + C\sum_{i=1}^{N}\xi_i \\
+
+s.t.\ &amp;amp; y_i ( \omega \cdot x_i + b )\ge 1 - \xi_i , i = 1, 2, ..., N \\
+&amp;amp; \xi_i \ge 0, i = 1, 2, \dots, N
+
+\end{align}\]
+
+&lt;p&gt;这样就可以针对线性不可分的数据集进行训练了。&lt;/p&gt;
+
+&lt;h1 id=&quot;--1&quot;&gt;$ $&lt;/h1&gt;
 &lt;h1 id=&quot;一些对我来说不显然的地方&quot;&gt;一些对我来说不显然的地方&lt;/h1&gt;
 
 &lt;blockquote&gt;
@@ -161,6 +202,13 @@ d =&amp;amp; |\vec{QA}| \cos \theta \\
 \end{align}\]
 
 &lt;p&gt;故$ | \omega \cdot x + b | $ 为什么反映了平面外一点到平面的距离。&lt;/p&gt;
+
+&lt;h1 id=&quot;--2&quot;&gt;$ $&lt;/h1&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Initial push @ 2020-09-28&lt;/p&gt;
+
+  &lt;p&gt;Update 1 @ 2020-10-07&lt;/p&gt;
+&lt;/blockquote&gt;
 </description>
         <pubDate>Mon, 28 Sep 2020 00:00:00 +0800</pubDate>
         <link>http://localhost:4000/2020/09/28/Statistical-learning-method-Ch7-Support-Vector-Machine/</link>
