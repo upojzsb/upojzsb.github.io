@@ -5,13 +5,32 @@
     <description>Justice delaied is justice denied</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 12 Oct 2020 18:11:01 +0800</pubDate>
-    <lastBuildDate>Mon, 12 Oct 2020 18:11:01 +0800</lastBuildDate>
+    <pubDate>Wed, 14 Oct 2020 14:31:17 +0800</pubDate>
+    <lastBuildDate>Wed, 14 Oct 2020 14:31:17 +0800</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
-        <title>研究生期间阅读过 Blog 的书签</title>
-        <description>&lt;h1 id=&quot;transformation-related&quot;&gt;Transformation-related&lt;/h1&gt;
+        <title>研究生期间阅读过有价值 Blog 的书签</title>
+        <description>&lt;h1 id=&quot;image-processing&quot;&gt;Image Processing&lt;/h1&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Source&lt;/th&gt;
+      &lt;th&gt;Backup&lt;/th&gt;
+      &lt;th&gt;Date&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a href=&quot;https://blog.csdn.net/xbinworld/article/details/65660665&quot;&gt;三十分钟理解：线性插值，双线性插值Bilinear Interpolation算法&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;/backup/三十分钟理解：线性插值，双线性插值Bilinear Interpolation算法.pdf&quot;&gt;backup&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;2020-10-14&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&quot;transformation-related&quot;&gt;Transformation-related&lt;/h1&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -37,6 +56,8 @@
         <category>Bookmark</category>
         
         <category>Postgraduate</category>
+        
+        <category>Citation</category>
         
         
       </item>
