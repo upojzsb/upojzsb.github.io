@@ -12,11 +12,18 @@ tags:
     - Citation
 ---
 
+
 # Image Processing
 
 |Source|Backup|Date|
 |---|---|---|
 |[三十分钟理解：线性插值，双线性插值Bilinear Interpolation算法](https://blog.csdn.net/xbinworld/article/details/65660665)|[backup](/backup/三十分钟理解：线性插值，双线性插值Bilinear Interpolation算法.pdf)|2020-10-14|
+
+# Mathematics
+
+|Source|Backup|Date|
+|---|---|---|
+|[最容易理解的对卷积(convolution)的解释](https://blog.csdn.net/bitcarmanlee/article/details/54729807)|[backup](/backup/最容易理解的对卷积(convolution)的解释.pdf)|2020-10-18|
 
 # Transformation-related
 
