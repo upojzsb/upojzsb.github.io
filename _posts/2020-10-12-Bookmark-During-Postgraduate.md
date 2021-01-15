@@ -13,6 +13,12 @@ tags:
 ---
 
 
+# Economics
+
+|Source|Backup|Date|
+|---|---|---|
+|[中国怎样走出内卷？ - 知乎](https://www.notion.so/c9d91718a6944237834e2c55d6ef29e4)（PS. 原文已删除）|[backup](/backup/中国怎样走出内卷.pdf)|2021-1-15|
+
 # Image Processing
 
 |Source|Backup|Date|
