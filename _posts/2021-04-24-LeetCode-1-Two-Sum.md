@@ -25,6 +25,8 @@ Easy Problem
 
 # Solution (Python)
 
+# 2021-04-24
+
 Since We want to find two indices that satisfies ` nums[index1] + nums[index2] == target `, we can maintain two pointers and vary them respectively to find the indices.
 
 ```python
