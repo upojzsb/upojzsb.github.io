@@ -44,4 +44,4 @@ class Solution(object):
 
 Complexity:
 
-Time: $ O(N^2) $, Storage: $ O(N) $
+Time: $ O(N^2) $, Space: $ O(N) $
