@@ -4,7 +4,7 @@ title:      LeetCode 1. Two Sum
 subtitle:   Solution
 date:       2021-04-24
 author:     UPOJZSB
-header-img: img\LeetCode-Logo.png
+header-img: img/LeetCode-Logo.png
 catalog: true
 tags:
     - LeetCode
