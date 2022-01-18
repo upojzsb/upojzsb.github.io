@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Unable to Install DotNet Framework 3.5 in Windows 10
+title:      Unable to Install .Net Framework 3.5 in Windows 10
 subtitle:   ErrorCode: 0x80071AB1
 date:       2022-01-18
 author:     UPOJZSB
