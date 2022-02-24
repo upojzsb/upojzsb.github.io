@@ -4,7 +4,7 @@ title:      Install Seismic Unix on Windows 10
 subtitle:   Seismic Unix
 date:       2022-02-24
 author:     UPOJZSB
-header-img: img/post-bg-random.jpg
+header-img: img/post-bg-seismic.jpg
 catalog: true
 tags:
     - Seismic Unix
