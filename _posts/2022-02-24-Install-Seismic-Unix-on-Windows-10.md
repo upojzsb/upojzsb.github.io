@@ -68,8 +68,8 @@ A window with a pair of eyes should occur.
 Set some environment variables. Add following commands to your file like `.zshrc` or `.bashrc`.
 
 ```sh
-export CWPROOT=\$HOME
-export PATH=\$PATH:\$HOME/bin
+export CWPROOT=$HOME
+export PATH=$PATH:$HOME/bin
 ```
 
 Get SU files from [Seismic-unix.org](https://wiki.seismic-unix.org/doku.php). Here we download `cwp_su_all_44R23.tgz`.
