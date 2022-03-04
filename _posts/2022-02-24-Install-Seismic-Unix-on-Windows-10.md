@@ -65,7 +65,7 @@ A window with a pair of eyes should occur.
 
 ## SU
 
-Set some environment variables. Add following commands to your file like `.zshrc` or `.bashrc`.
+Set some environment variables. Add following commands to your profile like `.zshrc` or `.bashrc`.
 
 ```sh
 export CWPROOT=$HOME
@@ -77,7 +77,7 @@ Get SU files from [Seismic-unix.org](https://wiki.seismic-unix.org/doku.php). He
 Copy the file to `$HOME` and unzip it by:
 
 ```sh
-mv /mnt/c/Users/lzhao/Downloads/cwp_su_all_44R23.tgz .
+mv /mnt/c/Users/lzhao/Downloads/cwp_su_all_44R23.tgz ~
 tar xvf cwp_su_all_44R23.tgz
 ```
 
