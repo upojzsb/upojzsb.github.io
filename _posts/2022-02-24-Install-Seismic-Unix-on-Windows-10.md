@@ -93,16 +93,16 @@ cp ./configs/Makefile.config_Linux_x86_64 ./Makefile.config
 Install required development packages by:
 
 ```sh
-sudo apt-get install build-essential
-sudo apt-get install gfortran
-sudo apt-get install libx11-dev
-sudo apt-get install libxt-dev
-sudo apt-get install freeglut3-dev
-sudo apt-get install libxmu-dev libxi-dev
-sudo apt-get install libc6
-sudo apt-get install libuil4
-sudo apt-get install x11proto-print-dev
-sudo apt-get install libmotif-dev
+sudo apt install build-essential
+sudo apt install gfortran
+sudo apt install libx11-dev
+sudo apt install libxt-dev
+sudo apt install freeglut3-dev
+sudo apt install libxmu-dev libxi-dev
+sudo apt install libc6
+sudo apt install libuil4
+sudo apt install x11proto-print-dev
+sudo apt install libmotif-dev
 ```
 
 There is some mistake in the Makefile, correct it by:
