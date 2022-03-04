@@ -7,6 +7,8 @@ author:     UPOJZSB
 header-img: img/post-bg-random.jpg
 catalog: true
 tags:
+    - Problem
+    - Windows 10
     - WSL
     - WSL2
     - Python

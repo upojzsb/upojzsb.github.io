@@ -7,6 +7,7 @@ author:     UPOJZSB
 header-img: img/post-bg-seismic.jpg
 catalog: true
 tags:
+    - Installation
     - Seismic Unix
     - SU
     - Windows 10

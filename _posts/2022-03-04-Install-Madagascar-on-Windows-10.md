@@ -7,6 +7,7 @@ author:     UPOJZSB
 header-img: img/post-bg-seismic.jpg
 catalog: true
 tags:
+    - Installation
     - Madagascar
     - Windows 10
     - WSL
