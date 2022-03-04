@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Install Madagascar Unix on Windows 10
+title:      Install Madagascar on Windows 10
 subtitle:   Madagascar
 date:       2022-03-04
 author:     UPOJZSB
@@ -36,7 +36,11 @@ sudo apt install git
 ## I failed to install with this line
 # sudo apt install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig python-dev python-numpy g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev python-epydoc scons git emacs25
 ## This line of packages had been installed successfully
-sudo apt install libxaw7-dev freeglut3-dev libnetpbm10-dev libgd-dev libplplot-dev libavcodec-dev libcairo2-dev libjpeg-dev swig  g++ gfortran libopenmpi-dev libfftw3-dev libsuitesparse-dev scons
+sudo apt install libxaw7-dev freeglut3-dev libnetpbm10-dev \
+libgd-dev libplplot-dev libavcodec-dev \
+libcairo2-dev libjpeg-dev swig  \
+g++ gfortran libopenmpi-dev \
+libfftw3-dev libsuitesparse-dev scons
 
 # Emacs
 sudo apt install emacs
