@@ -10,8 +10,41 @@ tags:
     - Problem
     - Python
     - Python3
+    - matlab
     - requests
 ---
+
+# Prologue
+
+> Sorted by alphabetical order of the name of the packages
+
+# matlab
+## ValueError: initializer must be a rectangular nested sequence
+
+```python
+Traceback (most recent call last):
+  File "D:/Git/DnCNN-GCT/dncnn_pytorch/preprocess.py", line 99, in <module>
+    curvelet = Curvelet(img)
+  File "D:/Git/DnCNN-GCT/dncnn_pytorch/preprocess.py", line 27, in __init__
+    self.is_real = matlab.double(np.array(is_real).tolist())
+  File "D:\Program Files\Python38\Lib\site-packages\matlab\mlarray.py", line 51, in __init__
+    raise ex
+  File "D:\Program Files\Python38\Lib\site-packages\matlab\mlarray.py", line 49, in __init__
+    super(double, self).__init__('d', initializer, size, is_complex)
+  File "D:\Program Files\Python38\Lib\site-packages\matlab\_internal\mlarray_sequence.py", line 41, in __init__
+    init_dims = _get_size(initializer)
+  File "D:\Program Files\Python38\Lib\site-packages\matlab\_internal\mlarray_utils.py", line 76, in _get_size
+    raise ValueError("initializer must be a rectangular nested sequence")
+ValueError: initializer must be a rectangular nested sequence
+```
+
+## Solution
+
+The problem occurred when transfer data from python to MATLAB via the interface provided by [MathWork](https://www.mathworks.com/help/matlab/matlab_external/matlab-arrays-as-python-variables.html).
+
+It seemed that the only datatype that `matlab.double` accept is **list**, so we have to change the datatype from whatever you provided to list. However, if you use Numpy in python, the function `np.array.tolist()` change the datatype to list only if the shape of the original ndarray is not `(1, )`, so you have to write `[x.tolist()]` on purpose in this case.
+
+*Updated at 31 Mar, 2022*
 
 # requests
 
@@ -76,7 +109,7 @@ proxy = urllib.request.getproxies()
 So, modify the scheme to the previous one should work well.
 
 *Updated at 21 Mar, 2022*
-  
+
 ## Reference
 [Reference 1](https://stackoverflow.com/questions/66642705/why-requests-raise-this-exception-check-hostname-requires-server-hostname)
 
