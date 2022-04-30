@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Problem occurred on Linux
+title:      Problems occurred in Linux
 subtitle:   Linux
 date:       2022-04-12
 author:     UPOJZSB
