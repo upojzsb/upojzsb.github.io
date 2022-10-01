@@ -53,6 +53,8 @@ tune2fs -U random /dev/nvme1n1p1  # Change the UUID randomly
 
 # Rebuild Boot
 
+## In Live USB Environment
+
 After operations above, we have already migrated all system and data we need, but the system is still not bootable, so we have to reconstruction boot progress.
 
 Firstly, we `mount` the partitions of the target disk to the environment we are using:
@@ -69,11 +71,15 @@ mount --bind /dev /mnt/dev
 
 Because we have to use `chroot` to do something to the `/dev` devices, we should mount `/dev` filesystem by `--bind` option.
 
+## In CHROOT Environment
+
 After `mount` the filesystems correctly, we can `chroot` to our target environment:
 
 ```bash
 chroot /mnt
 ```
+
+### Change fstab
 
 Because we have changed the UUID of partitions, the `/etc/fstab` file should be modified accordingly. Here, we can refer to `/def/mtab`, which is the currrent `mount` status.
 
@@ -97,6 +103,8 @@ vim /etc/fstab
 # UUID=f9fe0b69-a280-415d-a03a-a32752370dee none  swap   defaults  0      0
 # UUID=b411dc99-f0a0-4c87-9e05-184977be8539 /home ext4   noatime   0      2
 ```
+
+### Deal with GRUB
 
 Finally, we can reconstruct the `gurb`, an opensource bootloader.
 
