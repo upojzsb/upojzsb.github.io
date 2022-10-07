@@ -10,6 +10,7 @@ tags:
     - Problem
     - Linux
     - FUSE
+    - Nautilus
 ---
 
 # Prologue
@@ -34,7 +35,7 @@ fusermount -uz mount_point
 
 *Updated at 12 Apr, 2022*
 
-# NAUTILUS
+# Nautilus
 ## Nautilus is slow when opening directories
 
 In Ubuntu, too many Template files can cause nautilus to slow down. Keep files in the `~/Templates` directory only if necessary.
