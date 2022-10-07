@@ -29,7 +29,20 @@ No need for root privilege.
 fusermount -uz mount_point
 ```
 
-*Updated at 12 Apr, 2022*
-
 ## Reference
 [Reference](https://toolspond.com/fix-transport-endpoint-is-not-connected/)
+
+*Updated at 12 Apr, 2022*
+
+# NAUTILUS
+## Nautilus is slow when opening directories
+
+In Ubuntu, too many Template files can cause nautilus to slow down. Keep files in the `~/Templates` directory only if necessary.
+
+## Reference
+[reference](https://www.reddit.com/r/pop_os/comments/rvvksq/comment/hr8cf5p/?utm_source=share&utm_medium=web2x&context=3)
+
+*Update at 7 Oct, 2022*
+
+
+
