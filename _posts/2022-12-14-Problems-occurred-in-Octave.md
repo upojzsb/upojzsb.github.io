@@ -1,16 +1,14 @@
 ---
 layout:     post
-title:      Problems occurred in Linux
-subtitle:   Linux
-date:       2022-04-12
+title:      Problems occurred in Octave
+subtitle:   Octave
+date:       2022-12-14
 author:     UPOJZSB
 header-img: img/post-bg-random.jpg
 catalog: true
 tags:
     - Problem
-    - Linux
-    - FUSE
-    - Nautilus
+    - Octave
 ---
 
 # Prologue
