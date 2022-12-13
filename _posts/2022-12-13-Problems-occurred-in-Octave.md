@@ -2,7 +2,7 @@
 layout:     post
 title:      Problems occurred in Octave
 subtitle:   Octave
-date:       2022-12-14
+date:       2022-12-13
 author:     UPOJZSB
 header-img: img/post-bg-random.jpg
 catalog: true
@@ -35,4 +35,4 @@ And we can make this change permanent by adding it into `~/.octaverc`
 ## Reference
 [Reference](https://stackoverflow.com/questions/12032494/plot-window-not-responding)
 
-*Updated at 14 Dec, 2022*
+*Updated at 13 Dec, 2022*
