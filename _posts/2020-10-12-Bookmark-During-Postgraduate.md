@@ -31,6 +31,12 @@ tags:
 |---|---|---|
 |[最容易理解的对卷积(convolution)的解释](https://blog.csdn.net/bitcarmanlee/article/details/54729807)|[backup](/backup/最容易理解的对卷积(convolution)的解释.pdf)|2020-10-18|
 
+# Neural Networks
+
+|Source|Backup|Date|
+|---|---|---|
+|[[干货]深入浅出LSTM及其Python代码实现 - 知乎](https://zhuanlan.zhihu.com/p/104475016)|[backup](/backup/[干货]深入浅出LSTM及其Python代码实现 - 知乎.pdf)|2022-05-31|
+
 # Transformation-related
 
 |Source|Backup|Date|
