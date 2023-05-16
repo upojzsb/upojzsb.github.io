@@ -92,6 +92,16 @@ I logged into that IP (representing the management node of the other cluster), a
 
 It seems that the NIS of our cluster's management node treats another cluster's management node as its parent node.
 
+Finally, I removed the `nis` method from the `nsswitch.conf` on the master node, and remain it on the child nodes. So the `nsswitch.conf` of the master node looks like:
+
+```
+passwd: files sss
+shadow: files sss
+group: files sss
+```
+
+Since the users of the master node are listed on the `/etc/passwd`, the `NIS` server hasn't been stopped and the child nodes' `nsswitch.conf` files remain unchanged, we can still login child nodes from the master node via NIS service.
+
 # Reference
 
 Linux Manuals
