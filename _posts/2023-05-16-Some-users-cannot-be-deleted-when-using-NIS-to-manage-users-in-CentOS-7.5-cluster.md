@@ -18,7 +18,7 @@ tags:
 
 The cluster master and computing nodes are using CentOS Linux release 7.5.1804 (Core). File ``/etc/nsswitch.conf` contains
 
-```configure
+```
 passwd: files nis sss
 shadow: files nis sss
 group: files nis sss
@@ -26,7 +26,7 @@ group: files nis sss
 
 The output of `getent passwd -s nis` includes
 
-```configure
+```
 u2:$1$GE2edQgf$UyXuGspuf5uwbp.zK91aH0:9002:9002::/data/home/geou2:/bin/csh
 u3:$1$Ddytc7s0$5yPBahgmfVyaqC0.Bur1.1:9003:9003::/data/home/geou3:/bin/csh
 u1:$1$3Z52ZIDu$Od.rfOebsXRxI.nrBut1G1:9001:9001::/data/home/geou1:/bin/csh
