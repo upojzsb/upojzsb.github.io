@@ -85,7 +85,19 @@ According to [Wikipedia](https://en.wikipedia.org/w/index.php?title=AppArmor&old
 
 As SELinux provided a deny default (or whitelist) policy, when the access policy (or other policies) isn't set, SELinux will deny the behavior by default.
 
-Our `/home` is mounted via NFS (a disk from another machine). Maybe this is the reason that why `root`, whose ssh-related files are in `/root`, which is mounted directly: `/dev/mapper/centos-root on / type xfs (rw,relatime,seclabel,attr2,inode64,noquota)`, can login via keys on a machine protected by SELinux, but other users, whose ssh-related files are in `/home/username`, which is mounted via NFS: `mu01:/home on /home type nfs (rw,relatime,vers=3,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=12.12.12.100,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=12.12.12.100)`, cannot login via keys on the same machine.
+Our `/home` is mounted via NFS (a disk from another machine). Maybe this is the reason that why `root`, whose ssh-related files are in `/root`, which is mounted directly,
+
+```
+/dev/mapper/centos-root on / type xfs (rw,relatime,seclabel,attr2,inode64,noquota)
+```
+
+can login via keys on a machine protected by SELinux, but other users, whose ssh-related files are in `/home/username`, which is mounted via NFS,
+
+```
+mu01:/home on /home type nfs (rw,relatime,vers=3,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=12.12.12.100,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=12.12.12.100)
+```
+
+cannot login via keys on the same machine.
 
 ### Reference
 
