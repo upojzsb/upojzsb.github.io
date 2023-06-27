@@ -64,7 +64,7 @@ setenforce 0
 
 To make the setting permanent, we edited the `/etc/selinux/config` as following:
 
-```config
+```
 # This file controls the state of SELinux on the system.
 # SELINUX= can take one of these three values:
 #     enforcing - SELinux security policy is enforced.
