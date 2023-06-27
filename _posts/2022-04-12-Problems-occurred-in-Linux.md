@@ -80,6 +80,13 @@ SELINUXTYPE=targeted
 
 The setting will be enforced after rebooting.
 
+According to [Wikipedia](https://en.wikipedia.org/w/index.php?title=AppArmor&oldid=1160711657#:~:text=For%20example%2C%20SELinux%20requires%20a%20filesystem%20that%20supports%20%22security%20labels%22%2C%20and%20thus%20cannot%20provide%20access%20control%20for%20files%20mounted%20via%20NFS.):
+> For example, SELinux requires a filesystem that supports "security labels", and thus cannot provide access control for files mounted via NFS.
+
+As SELinux provided a deny default (or whitelist) policy, when the access policy (or other policies) isn't set, SELinux will deny the behavior by default.
+
+Our `/home` is mounted via NFS (a disk from another machine). Maybe this is the reason that why `root`, whose ssh-related files are in `/root`, which is mounted directly: `/dev/mapper/centos-root on / type xfs (rw,relatime,seclabel,attr2,inode64,noquota)`, can login via keys on a machine protected by SELinux, but other users, whose ssh-related files are in `/home/username`, which is mounted via NFS: `mu01:/home on /home type nfs (rw,relatime,vers=3,rsize=1048576,wsize=1048576,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,mountaddr=12.12.12.100,mountvers=3,mountport=20048,mountproto=udp,local_lock=none,addr=12.12.12.100)`, cannot login via keys on the same machine.
+
 ### Reference
 
 [public key authentication fails ONLY when sshd is daemon](https://serverfault.com/questions/321534/public-key-authentication-fails-only-when-sshd-is-daemon)
@@ -87,6 +94,8 @@ The setting will be enforced after rebooting.
 [Why am I still getting a password prompt with ssh with public key authentication?](https://unix.stackexchange.com/questions/36540/why-am-i-still-getting-a-password-prompt-with-ssh-with-public-key-authentication)
 
 [How to Disable SELinux on CentOS 7](https://linuxize.com/post/how-to-disable-selinux-on-centos-7/)
+
+[Wikipedia](https://en.wikipedia.org/w/index.php?title=AppArmor&oldid=1160711657)
 
 *Update at 27 June, 2023*
 
