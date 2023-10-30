@@ -35,14 +35,16 @@ hannotation.LineWidth = 1;
 
 #### Solution
 
-Add:
+If you don't care about the y-axis direction, add:
 
 ```MATLAB
 set(gca,'YDir','normal')
 ```
 
+Or, if the direction of y-axis does matter to you, try to use another implementation of annotation in [Annotation](https://www.mathworks.com/matlabcentral/fileexchange/63760-annotate#functions_tab)
 
 ## Reference
-[Reference](https://www.mathworks.com/matlabcentral/answers/408767-annotation-arrow-head-not-aligned-with-arrow-body#answer_750553)
+[Reference 1](https://www.mathworks.com/matlabcentral/answers/408767-annotation-arrow-head-not-aligned-with-arrow-body#answer_750553)
+[Reference 2](https://stackoverflow.com/a/55749028)
 
 *Updated at 30 Oct, 2023*
