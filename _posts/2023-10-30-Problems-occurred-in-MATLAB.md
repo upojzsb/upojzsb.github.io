@@ -21,7 +21,7 @@ tags:
 
 ### Rotate an ellipse
 
-The ellipse drew by `annotation` in MATLAB does not support `Rotation` property until **R2022a**[ref1](https://www.mathworks.com/help/matlab/ref/matlab.graphics.shape.ellipse-properties.html). The supported properties of the `Ellipse object` in **R2020b** are listed as follow.
+The ellipse drew by `annotation` in MATLAB does not support `Rotation` property until **R2022a**(see Reference 1). The supported properties of the `Ellipse object` in **R2020b** are listed as follow.
 
 ```MATLAB
 ha = annotation('ellipse');
@@ -31,30 +31,30 @@ ha =
 
   Ellipse with properties:
 
-           Color: [0 0 0]
-       FaceColor: 'none'
-       LineStyle: '-'
-       LineWidth: 0.5000
-        Position: [0.3000 0.3000 0.1000 0.1000]
-           Units: 'normalized'
-    BeingDeleted: off
-      BusyAction: 'queue'
-   ButtonDownFcn: ''
-        Children: [0×0 GraphicsPlaceholder]
-           Color: [0 0 0]
-     ContextMenu: [0×0 GraphicsPlaceholder]
-       CreateFcn: ''
-       DeleteFcn: ''
-       FaceColor: 'none'
-HandleVisibility: 'on'
-         HitTest: on
-   Interruptible: on
-       LineStyle: '-'
-       LineWidth: 0.5000
-          Parent: [1×1 AnnotationPane]
-   PickableParts: 'visible'
-        Position: [0.3000 0.3000 0.1000 0.1000]
-        Selected: on
+             Color: [0 0 0]
+         FaceColor: 'none'
+         LineStyle: '-'
+         LineWidth: 0.5000
+          Position: [0.3000 0.3000 0.1000 0.1000]
+             Units: 'normalized'
+      BeingDeleted: off
+        BusyAction: 'queue'
+     ButtonDownFcn: ''
+          Children: [0×0 GraphicsPlaceholder]
+             Color: [0 0 0]
+       ContextMenu: [0×0 GraphicsPlaceholder]
+         CreateFcn: ''
+         DeleteFcn: ''
+         FaceColor: 'none'
+  HandleVisibility: 'on'
+           HitTest: on
+     Interruptible: on
+         LineStyle: '-'
+         LineWidth: 0.5000
+            Parent: [1×1 AnnotationPane]
+     PickableParts: 'visible'
+          Position: [0.3000 0.3000 0.1000 0.1000]
+          Selected: on
 SelectionHighlight: on
                Tag: ''
               Type: 'ellipseshape'
@@ -73,7 +73,24 @@ $$
 
 $$
 
-and consider rotation matrix. Then use `plot` function to draw it.
+and consider rotation matrix:
+
+$$
+
+\begin{bmatrix}
+  x' \\
+  y' \\
+\end{bmatrix} = \begin{bmatrix}
+  \cos\theta & -\sin\theta \\
+  \sin\theta &  \cos\theta \\
+\end{bmatrix}\begin{bmatrix}
+  x \\
+  y \\
+\end{bmatrix}.
+
+$$
+
+Then use `plot` function to draw it.
 
 Here is a fragment of reference code:
 
