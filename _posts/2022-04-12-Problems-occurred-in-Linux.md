@@ -17,6 +17,7 @@ tags:
     - SSS
     - SSH
     - SSHD
+    - NFS
 ---
 
 # Prologue
@@ -50,6 +51,22 @@ In Ubuntu, too many Template files can cause nautilus to slow down. Keep files i
 [Reference](https://www.reddit.com/r/pop_os/comments/rvvksq/comment/hr8cf5p/?utm_source=share&utm_medium=web2x&context=3)
 
 *Update at 7 Oct, 2022*
+
+# NFS
+
+## nfs: server mu01 not responding, still trying
+
+When part of the file system is mounted as NFS, if the ssh login and auto-completion are slow and `dmesg` shows ***nfs: server mu01 not responding, still trying***, it is possible that the user's IO is too frequent and heavy, which makes the NFS host unable to process it in a timely manner. And we can figure out the user by package capture by using `tcpdump`: applying:
+
+```shell
+tcpdump -i eth0 -s 0 -w /tmp/tcpdump.pcap host server.example.com
+```
+
+Where *eth0* is the network interface that used to communicate between NFS client and host, */tmp/tcpdump.pcap* is the location you want to store the captured package, *server.example.com* is the hostname of NFS host.
+
+Wait for a while, the program can be terminated by press ^C, and the *tcpdump.pcap* file could be open by [Wireshark](https://www.wireshark.org/). Applying the filter shown in the red circle, you may notice a UID appearing frequently. This UID may be the one who causes problems, try to determine its username from `/etc/passwd` and fix it.
+
+![Wireshark_nfs](/img/post/linux_problem/wireshark_nfs.png)   
 
 # SSH and SSHD
 ## Users cannot login Linux host with pubkeys via ssh but root user can do so
