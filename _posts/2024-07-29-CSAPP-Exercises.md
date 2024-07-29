@@ -35,7 +35,7 @@ your trip of 1.67×?
 
 *A:* Under this situation, the fraction of travelling distance in Montana would be $ \alpha = \frac{150\text{km}}{250\text{km}} = 0.6 $, and the improvement factor would be $ k = \frac{150\text{km/h}}{100\text{km/h}} = 1.5 $. Applying Amdahl's law, we can get: $ S = \frac{1}{(1-\alpha)+\alpha/k} = 1.25 $.
 
-*B:* The fraction of travelling distance keeps unchange, which is $\alpha = 0.6$, and the total improvement factor is $ S = 1.67 $. So, we can get $ k $ by solving $ 1.67 = \frac{1}{(1-0.6)+0.6/k} $ and get $ k = 3 $. So the speed that spend in travelling Montana is $ v = 100km/h*3 = 300km/h $.
+*B:* The fraction of travelling distance keeps unchange, which is $\alpha = 0.6$, and the total improvement factor is $ S = 1.67 $. So, we can get $ k $ by solving $ 1.67 = \frac{1}{(1-0.6)+0.6/k} $ and get $ k = 3 $. So the speed that spend in travelling Montana is $ v = 100\text{km/h}*3 = 300\text{km/h} $.
 
 ## Exercise 1.2
 
