@@ -2,7 +2,7 @@
 layout:     post
 title:      《小波十讲》中文勘误
 subtitle:   Mistake Correction of Ten Lectures on Wavelets Chinese Version
-date:       2024-08-25
+date:       2024-08-24
 author:     UPOJZSB
 header-img: img/tenlecturesonwavelets.jpg
 catalog: true
