@@ -2,7 +2,7 @@
 layout:     post
 title:      《信息论基础》中文第二版勘误
 subtitle:   Mistake Correction of Elements of Information Theory Chinese Version Second Edition
-date:       2024-08-25
+date:       2024-08-11
 author:     UPOJZSB
 header-img: img/eit-cn-v2.jpg
 catalog: true
