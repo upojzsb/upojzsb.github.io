@@ -19,6 +19,10 @@ layout: default
 
 <!-- Main Content -->
 <div class="container">
+
+  {% include therme-switch.html %}
+
+
 	<div class="row">
         {% if site.sidebar == false %}
 <!-- NO SIDEBAR -->
@@ -183,7 +187,7 @@ layout: default
                                 </a>
                             </li>
                             {% endif %}
-                            
+
                         </ul>
                         {% if site.email %}
                             <p>✉️ {{site.email}}</p>

@@ -5,7 +5,7 @@
     <meta name="description" content="{{ site.description }}" />
     <meta name="keywords"  content="{{ site.keyword }}" />
     <meta name="theme-color" content="{{ site.chrome-tab-theme-color }}" />
-    
+
     <title>{% if page.title %}{{ page.title }} - {{ site.SEOTitle }}{% else %}{{ site.SEOTitle }}{% endif %}</title>
 
     <!-- Web App Manifest -->
@@ -16,7 +16,7 @@
 
     <!-- Safari Webpage Icon    by-BY -->
     <link rel="apple-touch-icon" href="{{ site.baseurl }}/img/favicon.ico">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
 
@@ -25,7 +25,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ "/css/hux-blog.min.css" | prepend: site.baseurl }}">
-    
+
 
     <!-- Pygments Github CSS -->
     <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl }}">
@@ -36,7 +36,13 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- 黑暗标记 -->
     <!-- Dark mode css -->
-    <link rel="stylesheet" href="{{ '/css/hux-blog.dark.css' | prepend: site.baseurl }}">
+    <!-- <link rel="stylesheet" href="{{ '/css/hux-blog.dark.css' | prepend: site.baseurl }}"> -->
+
+    <link rel="stylesheet" href="{{ '/css/hux-blog.css' | prepend: site.baseurl }}" id="light-theme">
+    <link rel="stylesheet" href="{{ '/css/hux-blog.dark.css' | prepend: site.baseurl }}" id="dark-theme">
+
+    <!-- CSS for therme-switch -->
+    <link rel="stylesheet" href="{{ '/css/switch.css' | prepend: site.baseurl }}">
 
     <!-- Hux Delete, sad but pending in China
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -58,7 +64,7 @@
     <!-- No baidu -->
     <!-- https://github.com/lurongkai/anti-baidu -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lurongkai/anti-baidu/js/anti-baidu-latest.min.js" charset="UTF-8"></script>
-    
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4199873870871130" crossorigin="anonymous"></script>
 
