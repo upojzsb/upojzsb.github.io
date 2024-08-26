@@ -1,9 +1,10 @@
 /* switch.css */
 .toggle-container {
     position: fixed;
-    top: 10px; /* Adjust the top spacing if needed */
+    top: 10px; /* Adjust as needed */
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1000; /* Ensure it's on top of other content */
     display: flex;
     align-items: center;
 }
@@ -11,8 +12,8 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: 50px;
-    height: 25px;
+    width: 60px;
+    height: 34px;
     margin-right: 10px; /* Space between switch and label */
 }
 
@@ -31,17 +32,17 @@
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-    border-radius: 25px;
+    border-radius: 34px;
 }
 
 .slider:before {
     position: absolute;
     content: "";
-    height: 15px;
-    width: 15px;
+    height: 26px;
+    width: 26px;
     border-radius: 50%;
-    left: 5px;
-    bottom: 5px;
+    left: 4px;
+    bottom: 4px;
     background-color: white;
     transition: .4s;
 }
@@ -51,15 +52,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(25px);
-}
-
-body.dark-mode .switch input:checked + .slider {
-    background-color: #2196F3;
-}
-
-body.dark-mode .switch input:checked + .slider:before {
-    transform: translateX(25px);
+    transform: translateX(26px);
 }
 
 .toggle-label {
