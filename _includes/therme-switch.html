@@ -6,3 +6,48 @@
     </label>
     <span class="toggle-label"> Dark Mode </span>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const themeToggle = document.getElementById('theme-toggle');
+        const lightTheme = document.getElementById('light-theme');
+        const darkTheme = document.getElementById('dark-theme');
+
+        // Check local storage for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            if (savedTheme === 'dark') {
+                console.log('Switch to dark mode');
+                darkTheme.removeAttribute('disabled');
+                lightTheme.setAttribute('disabled', 'true');
+                themeToggle.checked = true;
+            } else {
+                console.log('Switch to light mode');
+                darkTheme.setAttribute('disabled', 'true');
+                lightTheme.removeAttribute('disabled');
+                themeToggle.checked = false;
+            }
+        } else {
+            // Default to dark mode if no preference is saved
+            console.log('Switch to dark mode');
+            darkTheme.removeAttribute('disabled');
+            lightTheme.setAttribute('disabled', 'true');
+            themeToggle.checked = true;
+            localStorage.setItem('theme', 'dark');
+        }
+
+        themeToggle.addEventListener('change', function () {
+            if (themeToggle.checked) {
+                console.log('Switch to dark mode');
+                darkTheme.removeAttribute('disabled');
+                lightTheme.setAttribute('disabled', 'true');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                console.log('Switch to light mode');
+                darkTheme.setAttribute('disabled', 'true');
+                lightTheme.removeAttribute('disabled');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    });
+</script>
