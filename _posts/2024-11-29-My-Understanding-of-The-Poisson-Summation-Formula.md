@@ -51,7 +51,7 @@ $$
 \Pi : L^1\left(\mathbb{R}\right) \to L^1(\mathbb{T}), \quad (\Pi s)(\omega) = \sum_{n\in\mathbb{Z}} s(\omega + 2 \pi n).
 $$
 
-此时，定义在 $ \mathbb{R} $ 上的函数 $ r $ 和定义在 $ \mathbb{T} $ 上的函数 $ s $ 的内积可以表示为 $ \left<r, s\right>_\mathbb{R}=\left<\Pi r, s\right>_\mathbb{T}$，证明如下：
+此时，定义在 $ \mathbb{R} $ 上的函数 $ r $ 和定义在 $ \mathbb{T} $ 上的函数 $ s $ 的内积可以表示为 $ \left<r, s\right>_\mathbb{R}=\left<\Pi r, s\right>_\mathbb{T} $ ，证明如下：
 
 $$
 \begin{align*}
@@ -68,13 +68,13 @@ $$
 定义等距采样函数：
 
 $$
- \text{└┴┘}_\lambda(\omega) = \sum_{n\in\mathbb{Z}}\delta(\omega-n\lambda).
+ \text{山}_\lambda(\omega) = \sum_{n\in\mathbb{Z}}\delta(\omega-n\lambda).
 $$
 
  使用等距采样函数可将周期化算子表示为：
 
 $$
-\Pi_{2\pi}: s\mapsto  \text{└┴┘}_{2\pi} * s.
+\Pi_{2\pi}: s\mapsto  \text{山}_{2\pi} * s.
 $$
 
 ## 序列和采样
@@ -100,7 +100,7 @@ $$
 可以用周期为1的等距采样函数来表示完美采样算子：
 
 $$
-\Sigma: s\mapsto \text{└┴┘}s.
+\Sigma: s\mapsto \text{山}s.
 $$
 
 使用其它函数 $ \psi $ 进行采样为非完美采样，定义为：
@@ -160,17 +160,17 @@ $$
 
 Poisson求和公式将实轴函数 $s$ 及其周期化后的Fourier变换系数序列联系起来了，具体的：
 
->***定理9.5.1*** \
->  *在 $ L^1(\mathbb{R}) $ 上，有：*
->  $$
->  \Sigma F= F^\mathbb{T}\Pi,
->  $$
->  *更具体地，对于 $s \in L^2(\mathbb{R})$ ,*
->  $$
->  (F^\mathbb{T}\Pi s)(n)=\hat{s}(n).
->  $$
->  *对于 $s \in L^1(\mathbb{R}), \hat{s} \in L^1(\mathbb{R})$，*
->  $$
->  \sum_{n\in\mathbb{Z}}s(\omega+2\pi n) = \sum_{n\in\mathbb{Z}}\hat{s}(n)e^{in\omega}
->  $$
->  *上式逐点成立。*
+***定理9.5.1*** \
+*在 $ L^1(\mathbb{R}) $ 上，有：*
+$$
+\Sigma F= F^\mathbb{T}\Pi,
+$$
+*更具体地，对于 $s \in L^2(\mathbb{R})$ ,*
+$$
+(F^\mathbb{T}\Pi s)(n)=\hat{s}(n).
+$$
+*对于 $s \in L^1(\mathbb{R}), \hat{s} \in L^1(\mathbb{R})$，*
+$$
+\sum_{n\in\mathbb{Z}}s(\omega+2\pi n) = \sum_{n\in\mathbb{Z}}\hat{s}(n)e^{in\omega}
+$$
+*上式逐点成立。*
