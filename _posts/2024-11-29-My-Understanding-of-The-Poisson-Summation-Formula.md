@@ -14,13 +14,7 @@ tags:
 
 # 背景
 
-1
-
-2
-
-3
-
-在阅读离散小波变换相关的文章时，遇到诸如 $\mathcal{F}\left( <\phi_{j,k}, \phi_{j,m}> \right)=\sum_{m=-\infty}^{\infty}\left|\Phi\left(\omega+2\pi m\right)\right|^2$ 一类涉及Poisson求和公式的周期求和问题就会产生困惑。前期阅读过 M. Holschneider 所著 *Wavelet: And Analysis Tool* 书中，2.9节对Poisson求和公式有所解释，然而由于阅读时间较久，已然忘却。现重读该部分，并进行记录以便后续查找。
+在阅读离散小波变换相关的文章时，遇到诸如 $ \mathcal{F}\left( <\phi_{j,k}, \phi_{j,m}> \right)=\sum_{m=-\infty}^{\infty}\vert\Phi\left(\omega+2\pi m\right)\vert^2 $ 一类涉及Poisson求和公式的周期求和问题就会产生困惑。前期阅读过 M. Holschneider 所著 *Wavelet: And Analysis Tool* 书中，2.9节对Poisson求和公式有所解释，然而由于阅读时间较久，已然忘却。现重读该部分，并进行记录以便后续查找。
 
 # The Poisson Summation Formula
 
@@ -57,7 +51,13 @@ $$
 \Pi : L^1\left(\mathbb{R}\right) \to L^1(\mathbb{T}), \quad (\Pi s)(\omega) = \sum_{n\in\mathbb{Z}} s(\omega + 2 \pi n).
 $$
 
-此时，定义在 $ \mathbb{R} $ 上的函数 $ r $ 和定义在 $ \mathbb{T} $ 上的函数 $ s $ 的内积可以表示为 $ \left<r, s\right>_\mathbb{R}=\left<\Pi r, s\right>_\mathbb{T} $ ，证明如下：
+此时，定义在 $ \mathbb{R} $ 上的函数 $ r $ 和定义在 $ \mathbb{T} $ 上的函数 $ s $ 的内积可以表示为 
+
+$$ 
+\left<r, s\right>_\mathbb{R}=\left<\Pi r, s\right>_\mathbb{T}.
+$$
+
+证明如下：
 
 $$
 \begin{align*}
