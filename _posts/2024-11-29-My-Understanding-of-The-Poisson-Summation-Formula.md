@@ -14,6 +14,12 @@ tags:
 
 # 背景
 
+1
+
+2
+
+3
+
 在阅读离散小波变换相关的文章时，遇到诸如 $\mathcal{F}\left( <\phi_{j,k}, \phi_{j,m}> \right)=\sum_{m=-\infty}^{\infty}\left|\Phi\left(\omega+2\pi m\right)\right|^2$ 一类涉及Poisson求和公式的周期求和问题就会产生困惑。前期阅读过 M. Holschneider 所著 *Wavelet: And Analysis Tool* 书中，2.9节对Poisson求和公式有所解释，然而由于阅读时间较久，已然忘却。现重读该部分，并进行记录以便后续查找。
 
 # The Poisson Summation Formula
@@ -143,6 +149,7 @@ $$
 $$
 
 Fourier变换同时可以保存能量：
+
 $$
 \lVert s \rVert _{L^2(\mathbb{T})}^{2}=\frac{1}{2\pi} \lVert F^{\mathbb{T}}s\rVert _{L^2(\mathbb{Z})}^2.
 $$
@@ -162,15 +169,21 @@ Poisson求和公式将实轴函数 $s$ 及其周期化后的Fourier变换系数�
 
 ***定理9.5.1*** \
 *在 $ L^1(\mathbb{R}) $ 上，有：*
+
 $$
 \Sigma F= F^\mathbb{T}\Pi,
 $$
+
 *更具体地，对于 $s \in L^2(\mathbb{R})$ ,*
+
 $$
 (F^\mathbb{T}\Pi s)(n)=\hat{s}(n).
 $$
+
 *对于 $s \in L^1(\mathbb{R}), \hat{s} \in L^1(\mathbb{R})$，*
+
 $$
 \sum_{n\in\mathbb{Z}}s(\omega+2\pi n) = \sum_{n\in\mathbb{Z}}\hat{s}(n)e^{in\omega}
 $$
+
 *上式逐点成立。*
