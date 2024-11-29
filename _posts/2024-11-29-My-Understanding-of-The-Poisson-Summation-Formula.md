@@ -51,7 +51,7 @@ $$
 \Pi : L^1\left(\mathbb{R}\right) \to L^1(\mathbb{T}), \quad (\Pi s)(\omega) = \sum_{n\in\mathbb{Z}} s(\omega + 2 \pi n).
 $$
 
-此时，定义在 $ \mathbb{R} $ 上的函数 $ r $ 和定义在 $ \mathbb{T} $ 上的函数 $ s $ 的内积可以表示为 
+此时，定义在 $ \mathbb{R} $ 上的函数 $ r $ 和定义在 $ \mathbb{T} $ 上的函数 $ s $ 的内积可以表示为： 
 
 $$ 
 \left<r, s\right>_\mathbb{R}=\left<\Pi r, s\right>_\mathbb{T}.
@@ -94,7 +94,7 @@ $$
 范数：
 
 $$
-\lVert l \rVert^2_{L^2(\mathbb{Z})}.
+\lVert l \rVert^2_{L^2(\mathbb{Z})} = \sum_{n\in\mathbb{Z}} \vert{l}(n)\vert^2.
 $$
 
 完美采样算子 $ \Sigma $ 定义为函数从实轴 $ \mathbb{R} $ 到序列 $ \mathbb{Z} $ 的映射：
