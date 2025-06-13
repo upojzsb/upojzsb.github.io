@@ -4,7 +4,7 @@ title:      LaTeX Troubles A Personal Record
 subtitle:   Practical Notes on Debugging LaTeX and Related Scripts
 date:       2025-06-12
 author:     UPOJZSB
-header-img: img/post-bg-random.jpg
+header-img: img/post-bg-TexStudio.png
 catalog: true
 tags:
     - Problem
