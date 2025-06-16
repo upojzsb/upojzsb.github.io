@@ -150,7 +150,7 @@ Here’s an example that caused the warning in my case:
 \end{figure}
 ```
 
-This issue likely arises when `xdvipdfmx` tries to handle consecutive figure captions with `\ref` links and insufficient vertical spacing, which disrupts the internal annotation state machine.
+When you use \ref inside a figure's \caption, LaTeX (via hyperref) inserts a PDF annotation (a clickable link). However, if two figures appear close together on the page—especially when using aggressive float placement like [htb!]—xdvipdfmx may not be able to properly close one annotation before starting the next.
 
 The simples solution for this problem is to add vertical gap between two figures, like:
 ```latex
@@ -176,4 +176,63 @@ The simples solution for this problem is to add vertical gap between two figures
 ```
 
 Somethime, change the floating mode from `[htb!]` to `[htb]` may work, and users could control the place of figures via `\FloatBarrier` from package `\usepackage{placeins}`.
+
+Alternatively, wrapping all subfigures within an `adjustbox` environment (with `minipage=\textwidth`) may also resolve the issue, as it helps LaTeX properly encapsulate the annotation context.
+```latex
+\usepackage{adjustbox} % Include in preamble
+
+\begin{figure}[htb!]
+  \begin{adjustbox}{minipage=\textwidth, center} % <-Key line
+    \centering
+    \addtocounter{subfigure}{-1}
+
+    \subfigure{
+      \includegraphics[width=0.5\textwidth]{a.eps}
+      \label{fig:a}
+    } \\
+
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{b.eps}
+      \label{fig:b}
+    }
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{c.eps}
+      \label{fig:c}
+    }
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{d.eps}
+      \label{fig:d}
+    } \\
+
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{e.eps}
+      \label{fig:e}
+    }
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{f.eps}
+      \label{fig:f}
+    }
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{g.eps}
+      \label{fig:g}
+    } \\
+
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{h.eps}
+      \label{fig:h}
+    }
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{i.eps}
+      \label{fig:i}
+    }
+    \subfigure{
+      \includegraphics[width=0.3\textwidth]{j.eps}
+      \label{fig:j}
+    }
+
+    \caption{caption}
+    \label{fig:cleanfigure}
+  \end{adjustbox}
+\end{figure}
+```
 
