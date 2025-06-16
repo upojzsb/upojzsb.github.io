@@ -175,4 +175,5 @@ The simples solution for this problem is to add vertical gap between two figures
 \end{figure}
 ```
 
+Somethime, change the floating mode from `[htb!]` to `[htb]` may works, and users could control the place of figures via `\FloatBarrier` from package `\usepackage{placeins}`.
 
